@@ -1,0 +1,7 @@
+#! /bin/bash
+
+if [ "$ENV" == "development" ]; then
+  rerun ruby server.rb
+else
+  ruby server.rb
+fi

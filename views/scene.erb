@@ -1,0 +1,18 @@
+<h1><%= scene['name'] %></h1>
+
+<%= simple_format scene['description'] %>
+
+<% if (lock = scene['lock']) %>
+  <p><%= lock['prompt'] %></p>
+  <form method="post" action="/scene/<%= scene['id'] %>/unlock">
+    <input type="text" name="key" value="<%= key %>" />
+    <input type="submit" value="Unlock" />
+  </form>
+  <% if error %>
+    <p class="error"><%= error %></p>
+  <% end %>
+<% end %>
+
+<% Hash(scene['exits']).each do |scene_id, direction| %>
+  <p><a href="/scene/<%= scene_id %>"><%= direction %></a></p>
+<% end %>
