@@ -1,0 +1,73 @@
+---
+- id: a-hazy-return
+  description: |
+    Conciousness gradually returns. You feel slightly groggy. How much time has passed?
+  exits:
+    your-cabin: wake up, slowly
+
+- id: your-cabin
+  name: "Cabin 23-B"
+  description: |
+    You come to in your cabin. The opulent burn of a Pan Galactic Gargle
+    Blaster still lingers on your throat. You feel a strange sense of deja vu.
+    Your head throbs in time with the ship's engines.
+
+    The ship's engines?! Hadn't they been off? You remember being on
+    the float… the vertigo of open space… you were looking for something.
+
+    An overly cheerful sounds over the intercom: "Good morning all passengers,
+    welcome to day TypeError: date is null. Starship Enterprises is pleased to
+    announce that we are scheduled to shortly reach the Jovian system. Please
+    report to the galley for an emergency meeting at your earliest convience."
+
+    Your personal locker is in the corner.
+  exits:
+    your-locker-keypad: check your locker
+    corridor: through the door
+
+- id: your-locker-keypad
+  name: Your cabin locker
+  description: |
+    The keypad glows unethusiastically. You can't remember the code, but you're sure it's something simple.
+  lock:
+    prompt: "PIN Code"
+    answer: "1234"
+    opens: your-locker
+    errors:
+      - "That is not the correct password"
+      - "Try again"
+      - The Gargle Blaster lingers. Maybe you don't remember yet…
+  exits:
+    your-cabin: back
+
+- id: your-cabin-float
+  name: "Cabin 23-B"
+  description: |
+    You coast sideways through the door to your cabin and your locker hangs above you.
+  exits:
+    your-locker-keypad: open locker
+
+- id: your-locker
+  name: Your open locker
+  description: |
+    You open your locker. The mag boots are turning slowly behind a half-empty bottle
+    of Ol' Janx Spirit, as the tooth of an Algolian Suntiger bumps gently against
+    other assorted bottles. It occurs to you that you've never tried to mix a
+    Pan Galactic Gargle Blaster on the float before.
+
+    Now that the emergency is over, you feel a little more relaxed. You could use a drink.
+
+    Surely the engines can wait a little longer.
+  exits:
+    a-drink: against your better judgement, mix a drink
+
+- id: a-drink
+  name: One drink in
+  description: |
+    You mix the Pan Galactic Gargle Blaster as if you've done it a thousand times before. You drink it… carefully.
+
+    It feels, as they say, like having your brains smashed out by a slice of lemon wrapped round a large gold brick.
+
+    You feel better now, more confident, more alive. You consider looking for the others to celebrate your success. But first…
+  exits:
+    a-hazy-return: "just one more drink :)"

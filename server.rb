@@ -1,7 +1,7 @@
 require 'sinatra'
 require 'yaml'
 
-SCENES = YAML.load_file('scenes.yml')
+SCENES = Dir.glob('scenes/*.yml').flat_map { |f| YAML.load_file(f) }
 
 get '/' do
   scene = SCENES.first
