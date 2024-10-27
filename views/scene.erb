@@ -1,18 +1,60 @@
-<h1><%= scene['name'] %></h1>
+<div id="<%= scene['id'] %>">
+  <h1><%= scene['name'] %></h1>
 
-<%= simple_format scene['description'] %>
+  <%= simple_format scene['description'] %>
 
-<% if (lock = scene['lock']) %>
-  <p><%= lock['prompt'] %></p>
-  <form method="post" action="/scene/<%= scene['id'] %>/unlock">
-    <input type="text" name="key" value="<%= key %>" />
-    <input type="submit" value="Unlock" />
-  </form>
-  <% if error %>
-    <p class="error"><%= error %></p>
+  <% if (lock = scene['lock']) %>
+    <p><%= lock['prompt'] %></p>
+    <form method="post" action="/scene/<%= scene['id'] %>/unlock">
+      <input type="text" name="key" value="<%= key %>" />
+      <input type="submit" value="Unlock" />
+    </form>
+    <% if error %>
+      <p class="error"><%= error %></p>
+    <% end %>
   <% end %>
-<% end %>
 
-<% Hash(scene['exits']).each do |scene_id, direction| %>
-  <p><a href="/scene/<%= scene_id %>"><%= direction %></a></p>
-<% end %>
+  <% Hash(scene['exits']).each do |scene_id, direction| %>
+    <p><a href="/scene/<%= scene_id %>"><%= direction %></a></p>
+  <% end %>
+</div>
+
+<script>
+  // If the user clicks a link to "scene/a-hazy-return", fade out the page before navigating
+  document.querySelectorAll('a[href="/scene/a-hazy-return"]').forEach(function(link) {
+    link.addEventListener('click', function(event) {
+      event.preventDefault();
+      document.body.classList.add('fade-out');
+      setTimeout(function() {
+        window.location = link.href;
+      }, 2000);
+    });
+  });
+
+  // If the page is scene/a-hazy-return, fade in the page
+  if (window.location.pathname === '/scene/a-hazy-return') {
+    document.body.classList.add('fade-in');
+  }
+
+</script>
+
+<style>
+  @keyframes fade-out {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+  @keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  .fade-out {
+    animation: fade-out 2s;
+    opacity: 0;
+  }
+
+  .fade-in {
+    animation: fade-in 2s;
+  }
+</style>
