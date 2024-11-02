@@ -11,8 +11,9 @@ end
 
 get '/scene/:id' do
   scene = SCENES.find { |r| r['id'] == params[:id] } or halt 404
+  hint = params[:hint].to_i if params[:hint]
 
-  render_scene(scene)
+  render_scene(scene, hint:)
 end
 
 post '/scene/:id/unlock' do
@@ -21,7 +22,7 @@ post '/scene/:id/unlock' do
   answer = scene.dig('lock', 'answer') or halt 404
   opens = scene.dig('lock', 'opens') or halt 404
 
-  if key == answer
+  if answer_matches?(key, answer)
     redirect to("/scene/#{opens}")
   else
     error = scene.dig('lock', 'errors').sample
@@ -41,8 +42,14 @@ error do
   erb "500: I'm sorry, Dave. I'm afraid I can't do that.", layout: :main
 end
 
-def render_scene(scene, key: nil, error: nil)
-  erb :scene, layout: :main, locals: { scene:, key:, error: }
+def render_scene(scene, hint: nil, key: nil, error: nil)
+  erb :scene, layout: :main, locals: { scene:, key:, error:, hint: }
+end
+
+# This method is used to compare the user's input with the expected answer
+# It is case-insensitive and ignores non-word characters, i.e. punctuation
+def answer_matches?(actual, expected)
+  actual.downcase.gsub(/\W/, '') == expected.downcase.gsub(/\W/, '')
 end
 
 helpers do

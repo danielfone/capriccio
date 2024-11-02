@@ -12,6 +12,15 @@
     <% if error %>
       <p class="error"><%= error %></p>
     <% end %>
+
+    <% if hint && (hint_text = lock.dig('hints', hint-1)) %>
+      <p><%= hint_text %></p>
+      <% if lock.dig('hints', hint) %>
+        <p><a href="/scene/<%= scene['id'] %>?hint=<%= hint+1 %>">Hint <%= hint+1 %></a></p>
+      <% end %>
+    <% elsif lock.dig('hints') %>
+      <p><a href="/scene/<%= scene['id'] %>?hint=1">Hint 1</a></p>
+    <% end %>
   <% end %>
 
   <% Hash(scene['exits']).each do |scene_id, direction| %>
