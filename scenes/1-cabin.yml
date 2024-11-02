@@ -1,0 +1,33 @@
+---
+- id: a-hazy-return
+  description: |
+    Conciousness gradually returns. You feel slightly groggy. How much time has passed?
+  exits:
+    your-cabin: wake up, slowly
+
+- id: your-cabin
+  name: "Cabin 23-B"
+  description: |
+    You come to in your cabin. The opulent burn of a Pan Galactic Gargle
+    Blaster still lingers on your throat. You feel a strange sense of deja vu.
+    Your head throbs in time with the ship's engines.
+
+    The ship's engines?! Hadn't they been off? You remember being on
+    the float… the vertigo of open space… you were looking for something.
+
+    An overly cheerful sounds over the intercom: "Good morning all passengers,
+    welcome to day TypeError: date is null. Starship Enterprises is pleased to
+    announce that we are scheduled to shortly reach the Jovian system. Please
+    report to the galley for an emergency meeting at your earliest convience. DON'T PANIC."
+
+    Your personal locker is in the corner.
+  exits:
+    your-locker-keypad: check your locker
+    corridor: through the door
+
+- id: your-locker-keypad
+  name: Your cabin locker
+  description: |
+    The keypad glows unethusiastically. You can't remember the code, but you're sure it'll come back to you.
+  exits:
+    your-cabin: back
