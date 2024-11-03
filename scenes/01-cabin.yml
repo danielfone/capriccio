@@ -1,0 +1,82 @@
+---
+- id: a-hazy-return
+  description: |
+    Conciousness gradually returns. You feel slightly groggy. How much time has passed?
+  exits:
+    waking-up: wake up, slowly
+
+- id: waking-up
+  name: "Cabin 23-B"
+  description: |
+    You come to in your cabin. The opulent burn of a Pan Galactic Gargle
+    Blaster still lingers on your throat. You feel a strange sense of deja vu.
+    Your head throbs in time with the ship's engines.
+
+    The ship's engines?! Hadn't they been off? You remember being on
+    the float… the vertigo of open space… you were looking for something.
+
+    A cheerful sounds over the intercom: "Good morning all passengers, welcome
+    to day TypeError: date is null. Starship Enterprises is pleased to announce
+    that we are scheduled to shortly reach the Jovian system. Please report to
+    the galley for an emergency meeting at your earliest convience. DON'T
+    PANIC."
+  exits:
+    your-cabin: get up
+
+- id: your-cabin
+  name: "Cabin 23-B"
+  description: |
+    The cabin is small, but comfortable. The ship's engines hum softly beneath
+    you. You can see Jupiter through the window. On your desk, your terminal
+    shows a error message: `Error playing S01E18.mp4 - unknown codec`.
+
+    Your personal locker is in the corner. A door leads out to the corridor.
+  exits:
+    your-locker-keypad: check your locker
+    corridor: go through the door
+
+- id: your-locker-keypad
+  name: Your cabin locker
+  description: |
+    The keyboard glows unethusiastically. You can't remember the code, but you're
+    sure it'll come back to you.
+  exits:
+    your-cabin: give up for now
+
+- id: corridor
+  name: Corridor to the galley
+  description: |
+    The corridor is empty. On both sides, doors lead to the cabins of the other
+    passengers. At the end, the door to the galley is closed.
+
+    Halfway down, one of the cabin doors has been left open. You can see a
+    flickering light inside. Passenger cabins are strictly private, but no one
+    seems to be around,
+  exits:
+    your-cabin: return to your cabin
+    galley-lock: open the galley door
+    other-cabin: violate the privacy of another passenger
+
+- id: other-cabin
+  name: A cabin you shouldn't be in
+  description: |
+    The cabin is empty, but The terminal is still on. someone more organised
+    than you probably left in a rush. It's streaming an old TV show you
+    recognise from your childhood. You don't recall the name, but there was a
+    plane crash on a mysterious island.
+  exits:
+    corridor: leave the cabin
+
+- id: galley-lock
+  name: Galley door
+  description: |
+    The door to the galley is locked. You can hear the muffled sounds of a meeting inside.
+  lock:
+    prompt: "Enter 10 digit access code"
+    answer: "4815162342"
+    opens: galley-meeting
+    errors:
+      - "Incorrect code"
+      - "Try again"
+  exits:
+    corridor: go back down the corridor

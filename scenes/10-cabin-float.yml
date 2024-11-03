@@ -1,30 +1,52 @@
 ---
+- id: get-magboots
+  name: "Outside the ship"
+  description: |
+    Finding your way back to the airlock is much faster now that you know the
+    way. You cycle the airlock and start spinning down the corridors rather
+    recklessly. Like a school kid on a shopping trolley, the novelty of gliding
+    has somewhat gone to your head.
+  exits:
+    your-cabin-float: coast backwards through the door to your cabin
 
 - id: your-cabin-float
   name: "Cabin 23-B"
   description: |
-    You coast sideways through the door to your cabin and your locker hangs above you.
+    Somehow, the cabin seems smaller when you're floating in it.
+
+    Your locker hangs above you. A post-it note floats nearby, it must have
+    been hidden under the locker.
   exits:
-    your-locker-keypad: open locker
+    your-locker-keypad-float: open locker
+    post-it: try to read the note
+
+- id: post-it
+  name: The post-it note
+  description: |
+    A handwritten scrawl reads: "the code is the middle name of your favourite meetup organiser"
+  exits:
+    your-cabin-float: float back
+    your-locker-keypad-float: twist awkwardly to the keypad
 
 - id: your-locker-keypad-float
   name: Your cabin locker
   description: |
-    The keypad glows unethusiastically.
+    The keyboard glows unethusiastically.
   lock:
-    prompt: "PIN Code"
-    answer: "9999"
+    prompt: "Password"
+    answer: "Stephen"
     opens: your-locker
     errors:
       - "That is not the correct password"
       - "Try again"
   exits:
-    your-cabin-float: back
+    your-cabin-float: bounce off in frustration
+    post-it: reread the note
 
 - id: your-locker
   name: Your open locker
   description: |
-    You open your locker. The mag boots are turning slowly behind a half-empty bottle
+    You open your locker. The mag boots are tumbling slowly behind a half-empty bottle
     of Ol' Janx Spirit, as the tooth of an Algolian Suntiger bumps gently against
     other assorted bottles. It occurs to you that you've never tried to mix a
     Pan Galactic Gargle Blaster on the float before.
