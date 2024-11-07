@@ -1,7 +1,10 @@
 <div id="<%= scene['id'] %>">
   <h1><%= scene['name'] %></h1>
 
-  <%= simple_format scene['description'] %>
+  <% if session[scene['id']] && scene['unlocked'] %>
+    <%= simple_format scene['unlocked'] %>
+  <% else %>
+    <%= simple_format scene['description'] %>
 
   <% if (lock = scene['lock']) %>
     <p><%= lock['prompt'] %></p>
@@ -21,6 +24,7 @@
     <% elsif lock.dig('hints') %>
       <p><a href="/scene/<%= scene['id'] %>?hint=1">Hint 1</a></p>
     <% end %>
+  <% end %>
   <% end %>
 
   <% Hash(scene['exits']).each do |scene_id, direction| %>

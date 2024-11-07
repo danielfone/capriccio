@@ -1,5 +1,10 @@
 require 'sinatra'
 require 'yaml'
+require 'securerandom'
+
+enable :sessions
+set :session_secret, ENV.fetch('SESSION_SECRET') { SecureRandom.hex(64) }
+
 
 SCENES = Dir.glob('scenes/*.yml').flat_map { |f| YAML.load_file(f) }
 
@@ -24,9 +29,11 @@ post '/scene/:id/unlock' do
   opens = scene.dig('lock', 'opens') or halt 404
 
   if answer_matches?(key, answer)
+    # Set the session variable to remember that the scene has been unlocked
+    session[params[:id]] = true
     redirect to("/scene/#{opens}")
   else
-    error = scene.dig('lock', 'errors').sample
+    error = scene.dig('lock', 'errors')&.sample || "Try again"
     render_scene(scene, key:, error:)
   end
 end

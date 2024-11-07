@@ -2,6 +2,7 @@
 
 source "https://rubygems.org"
 
+gem "dotenv", "~> 3.1"
 gem "sinatra", "~> 3.2"
 gem "rackup", "~> 1.0"
 gem "puma", "~> 6.4"
