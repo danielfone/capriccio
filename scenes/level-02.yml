@@ -1,0 +1,198 @@
+---
+# Narrative
+- id: l2-galley-meeting
+  name: Galley
+  description: |
+    [this is narrative]
+    the AI is relentlessly positive as it explains that lots of things are broken and it doesn't know why.
+    missions:
+      - Log in to the Navigation Computer to restore proper course plotting.
+      - Restablish communication with HQ
+      - Debug the life-support microservices to keep the onboard climate comfortable (i.e. surviable)
+      - Try reconfiguring the firewall
+    the ship is called The Gemstone of the Skies
+  exits:
+    l2-galley: explore the galley
+
+# Scene
+- id: l2-galley
+  name: Galley
+  description: |
+    [set the scene with some colour]
+    [clue: Large posters of the covers of the four Daft Punk Studio albums hang on the wall.]
+    [Introduce Trevor, the ship's sysadmin / BOFH. He's the only other human who goes on the ship, but only in dock]
+    [next to the galley is the observation lounge]
+    [down the corridor is the ops deck and Trevor's office]
+  exits:
+    l2-obs-longue: go to the observation lounge
+    l2-trevors-office: enter Trevor's office
+    l2-ops-deck: poke around the operations deck
+
+- id: l2-obs-longue
+  name: Observation Lounge
+  description: |
+    [set the scene]
+    [clue: Temperature Display on the wall "Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at https://discovery/."]
+
+    On top of a pile of crossword books, sudoku puzzles and a half-finished
+    jigsaw, you see a small note scribbled on a napkin. It reads:
+    `r1bq1r2/pp1kbBpp/2np4/3Np3/Q7/8/PP3PPP/R1B2RK1 w - - 6 16 My favourite!`.
+  exits:
+    l2-galley: return to the galley
+
+- id: l2-trevors-office
+  name: Trevor's Office
+  description:
+    Trevor's office is a mess. The desk is covered in papers and empty coffee
+    cups. A book of chess puzzles is open on the desk.
+
+    Under the desk, you can see a small server blinking away. On the front
+    of the server, just above the CD tray, a tiny scrawl of vivid reads
+    "life-support-001". It appears to be plugged in to one of the monitors on
+    the desk.
+
+    One of the other monitors has a note stuck to it.
+  exits:
+    l2-trevors-note: read the note
+    l2-life-support-server: wiggle the mouse on the life support server
+    l2-galley: return to the galley
+
+- id: l2-trevors-note
+  name: Trevor's Note
+  description: |
+    The note reads:
+
+    <i>HQ now using 67-bit encryption on comms channel. MUCH better than 64 bits.</i>
+  exits:
+    l2-trevors-office: put the note back
+
+- id: l2-life-support-server
+  name: Life Support Server
+  description: |
+    There is a README in the root directory of the server. It reads:
+
+    # Life Support Microservices
+    # ---------------------
+    # In order to initialise the life support microservices, the hostnames
+    # of all four microservices must be provided. The hostnames are stored
+    # in /usr/life-support/node_modules/@acme-registry/hosts.txt
+  lock:
+    prompt: "/usr/life-support/node_modules/@acme-registry/hosts.txt"
+    answer: homework discovery human_after_all random_access_memories
+    opens: l2-life-support-server
+    hints:
+      - In my experience, sysadmins like to name hosts after cultural references they enjoy. They are human after all.
+      - Have you seen any hostname related errors that might suggest a set of four names?
+      - Oh, I get it — the posters in the galley! It's the names of the four Daft Punk Studio albums in order of release.
+  unlocked: |
+    The life support diagnostics are a pleasant shade of green.
+
+    A routing table is displayed on the screen. The table reads:
+
+    +-------------------------------------+
+    | Hostname               | IP Address |
+    |------------------------|------------|
+    | homework               | 10.1.1.1   |
+    | discovery              | 10.1.1.7   |
+    | human_after_all        | 10.1.1.69  |
+    | random_access_memories | 10.1.1.234 |
+    +-------------------------------------+
+  exits:
+    l2-trevors-office: close the terminal
+
+# Scene
+- id: l2-ops-deck
+  name: Operations Deck
+  description: |
+    [set the scene]
+    [clue: An error message over the oxygen supply monitor: `cannot resolve random_access_memories: Unknown host`]
+    [describe exits]
+  exits:
+    l2-comms-array: check the comms array
+    l2-navigation-computer: check the navigation computer
+    l2-firewall-configuration: configure the firewall
+    l2-dummies-book: inspect the yellow book
+    l2-galley: return to the galley
+
+- id: l2-dummies-book
+  name: µTLS Encryptotron for Dummies
+  description: |
+    The book is open on a page about configuring a firewall. The page is covered
+    in sticky notes. Amongst other things, you see a note that reads:
+
+    <i>Primes are important in cryptography, that's why our Initialisation
+    Vector is a prime. For example, to use 32-bit encryption, initialise with
+    the smallest prime whose digits sum to 32. This is 6899. 6899 is a prime
+    whose digits sum to 32. 6 + 8 + 9 + 9 = 32. 32-bit encryption. Très bien
+    secure.</i>
+  exits:
+    l2-ops-deck: close the book
+
+- id: l2-comms-array
+  name: Communications Array
+  description: |
+    [set the scene]
+    [this is a µTLS Encryptotron, it's trying to connect to HQ but the handshake is failing]
+  lock:
+    prompt: "µTLS Encryptotron Initialisation Vector"
+    errors: ["Handshake failed: Incorrect IV"]
+    answer: "59899999"
+    opens: l2-comms-array
+    hints:
+      - Did I see a note about primes in the µTLS Encryptotron for Dummies book?
+      - I don't know what 'bits' Trevor configured for the encryption.
+      - According to the note in Trevor's office, you'll need to find the smallest prime whose digits sum to 67.
+  unlocked: |
+    The µTLS Encryptotron beeps and whirrs unnecessarily as chatters away to HQ.
+
+    The screen reads:
+    [clue: `Listening on address 192.168.1.24` is shown amongst some silly technobabble output]
+  exits:
+    l2-ops-deck: return to the ops deck
+
+- id: l2-navigation-computer
+  name: Navigation Computer
+  description: |
+    [set the scene]
+    [A serenely blue Windows XP login screen awaits. Beside a chess icon is the username `Trevor` and a password field.]
+  lock:
+    prompt: "Trevor's Password"
+    errors: ["Did you forget your password?"]
+    answer: "Qg4#"
+    opens: l2-navigation-computer
+    hints:
+      - Looks like Trevor's really into Chess puzzles.
+  unlocked: |
+    The desktop is cluttered with icons. A powershell window is open, displaying
+    the output of a script. The script reads:
+
+    [clue: `Listening on address 193.167.1.111` is shown amongst some silly technobabble output]
+  exits:
+    l2-ops-deck: return to the ops deck
+
+- id: l2-firewall-configuration
+  name: A Cisco Firewall Configuration GUI
+  description: |
+    [set the scene]
+    [the player must enter a list of IP addresses in order]
+  lock:
+    prompt: /etc/firewall.d/ip-whitelist.conf
+    answer: "10.1.1.1 10.1.1.7 10.1.1.69 10.1.1.234 192.168.1.24 193.167.1.111"
+    opens: l2-reboot-successful
+  exits:
+    l2-ops-deck: return to the ops deck
+
+- id: l2-reboot-successful
+  name: Operations Deck
+  description: |
+    [narrative!]
+    [the AI is pleased to announce that everything is hunky dory again!]
+    [Just something interferring a tiny bit with the sensor array, and it looks like it's external]
+    [we'll need to do a wee spacewalk to fix it]
+    [engines off first]
+    [no worry at all, this is all in the manual]
+    [although, the manual is a bit out of date]
+
+    The AI opens a hatch in the floor, revealing a ladder down to the engine room.
+  exits:
+    l3-engineering: slide down the ladder

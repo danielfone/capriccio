@@ -1,0 +1,87 @@
+#
+# Done. Needs a bit of polish.
+#
+---
+- id: a-hazy-return
+  description: |
+    Conciousness gradually returns. You feel slightly groggy. How much time has passed?
+  exits:
+    l1-waking-up: wake up, slowly
+
+- id: l1-waking-up
+  name: "Cabin 23-B"
+  description: |
+    You come to in your cabin. The opulent burn of a Pan Galactic Gargle
+    Blaster still lingers on your throat. You feel a strange sense of deja vu.
+    Your head throbs in time with the ship's engines.
+
+    The ship's engines?! Hadn't they been off? You remember being on
+    the float… the vertigo of open space… you were looking for something…
+
+    A cheerful voice sounds over the intercom: "Good morning all passengers,
+    welcome to day TypeError: date is null. Aphelion Adventures is pleased to
+    announce that will shortly reach the Jovian system. Please report to the
+    galley for an emergency meeting at your earliest convience. DON'T PANIC."
+  exits:
+    l1-your-cabin: get up
+
+- id: l1-your-cabin
+  name: "Cabin 23-B"
+  description: |
+    The cabin is small, but comfortable. The ship's engines hum softly beneath
+    you. You can see Jupiter through the window, a little smaller than the moon.
+
+    Your personal locker is in the corner. A door leads out to the corridor.
+  exits:
+    l1-your-locker-keypad: check your locker
+    l1-corridor: go through the door
+
+- id: l1-your-locker-keypad
+  name: Your cabin locker
+  description: |
+    The keyboard glows unethusiastically. You can't remember the code, but you're
+    sure it'll come back to you.
+  exits:
+    l1-your-cabin: give up for now
+
+- id: l1-corridor
+  name: Corridor to the galley
+  description: |
+    The corridor is empty. On both sides, doors lead to the cabins of the other
+    passengers. At the end, the door to the galley is closed.
+
+    Halfway down, one of the cabin doors has been left open. You can see a
+    glowing light inside. Passenger cabins are strictly private, but no one
+    seems to be around.
+  exits:
+    l1-galley-lock: open the galley door
+    l1-other-cabin: violate the privacy of another passenger
+    l1-your-cabin: return to your cabin
+
+- id: l1-other-cabin
+  name: A cabin you shouldn't be in
+  description: |
+    The cabin is empty, but a screen has a TV show paused on it. You don't
+    recognise it, but the title bar says `S01 E18 Numbers`. They must have
+    been watching it before they left for the emergency meeting.
+  exits:
+    l1-corridor: leave the cabin
+
+- id: l1-galley-lock
+  name: Galley door
+  description: |
+    The door to the galley is locked. You can hear the muffled sounds of a meeting inside.
+  lock:
+    prompt: "Enter 10 digit access code"
+    answer: "4815162342"
+    opens: l2-galley-meeting
+    errors:
+      - "Incorrect code"
+      - "Try again"
+    hints:
+      - Maybe the other passengers needed a reminder of the code before they left their cabin?
+      - I suspect the episode in question will help you with the lock.
+      - Try researching "S01 E18 Numbers" and use 6 numbers you find.
+
+  exits:
+    l1-corridor: go back down the corridor
