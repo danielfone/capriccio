@@ -1,5 +1,5 @@
 ---
-- id: get-magboots
+- id: l5-get-magboots
   name: "Outside the ship"
   description: |
     Finding your way back to the airlock is much faster now that you know the
@@ -7,57 +7,57 @@
     recklessly. Like a school kid on a shopping trolley, the novelty of gliding
     has somewhat gone to your head.
   exits:
-    your-cabin-float: coast backwards through the door to your cabin
+    l5-your-cabin-float: float backwards through the door to your cabin
 
-- id: your-cabin-float
+- id: l5-your-cabin-float
   name: "Cabin 23-B"
   description: |
     Somehow, the cabin seems smaller when you're floating in it.
 
-    Your locker hangs above you. A post-it note floats nearby, it must have
-    been hidden under the locker.
+    Your locker hangs above you. Your hand terminal floats nearby with a
+    notification on the screen.
   exits:
-    your-locker-keypad-float: open locker
-    post-it: try to read the note
+    l5-your-locker-keypad-float: open locker
+    l5-hand-terminal: read the notification
 
-- id: post-it
-  name: The post-it note
+- id: l5-hand-terminal
+  name: The hand terminal
   description: |
-    A handwritten scrawl reads: "the code is the middle name of your favourite meetup organiser"
+    It's a message from your local Ruby group, reminding you that the next
+    meet up is in two weeks. You suddenly recall your password… it was the
+    middle name of your favourite meetup organiser!
   exits:
-    your-cabin-float: float back
-    your-locker-keypad-float: twist awkwardly to the keypad
+    l5-your-cabin-float: let the terminal float away
+    l50your-locker-keypad-float: twist awkwardly to the keypad
 
-- id: your-locker-keypad-float
+- id: l5-your-locker-keypad-float
   name: Your cabin locker
   description: |
     The keyboard glows unethusiastically.
   lock:
     prompt: "Password"
     answer: "Stephen"
-    opens: your-locker
+    opens: l5-your-locker
     errors:
       - "That is not the correct password"
       - "Try again"
   exits:
-    your-cabin-float: bounce off in frustration
-    post-it: reread the note
+    l5-your-cabin-float: bounce off in frustration
 
-- id: your-locker
+- id: l5-your-locker
   name: Your open locker
   description: |
-    You open your locker. The mag boots are tumbling slowly behind a half-empty bottle
-    of Ol' Janx Spirit, as the tooth of an Algolian Suntiger bumps gently against
-    other assorted bottles. It occurs to you that you've never tried to mix a
+    You open your locker. The mag boots are tumbling slowly behind a half-empty
+    bottle of Ol' Janx Spirit. It occurs to you that you've never tried to mix a
     Pan Galactic Gargle Blaster on the float before.
 
     Now that the emergency is over, you feel a little more relaxed. You could use a drink.
 
     Surely the engines can wait a little longer.
   exits:
-    a-drink: against your better judgement, mix a drink
+    l5-a-drink: against your better judgement, mix a drink
 
-- id: a-drink
+- id: l5-a-drink
   name: One drink in
   description: |
     You mix the Pan Galactic Gargle Blaster as if you've done it a thousand times before. You drink it… carefully.

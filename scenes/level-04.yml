@@ -1,0 +1,203 @@
+#
+# Level 4: The exterior of the ship.
+#
+# This level is about exploring the exterior of the ship. The player will need
+# to navigate around the ship to reach the sensor array. The player can move in
+# four directions: port, starboard, forward, and aft. It's never explicitly
+# stated that the ship is round, but as the player moves to the left or right,
+# they will swap between the dorsal and ventral sides of the ship. The player
+# can see the sun from the dorsal side of the ship, and jupiter from the ventral
+# side.
+#
+# The player will need to navigate around the ship to reach the sensor array.
+#
+# p - port, s - starboard, d - dorsal, v - ventral
+#
+---
+
+# The aft of the ship
+
+- id: l4-d-aft
+  name: The aft of the ship
+  description: |
+    [describe the exterior of the ship]
+    [clue: you can see the sun in the distance]
+    [clue: there's nothing like a sensor array in sight]
+  exits:
+    - l4-s-tail: go right
+    - l4-p-tail: go left
+    - l4-d-mid1: go forward
+
+- id: l4-s-tail
+  name: The starboard tail
+  description: |
+    [describe the tail of the ship]
+    [clue: you can see the sun in the distance]
+    [clue: there's nothing like a sensor array in sight]
+  exits:
+    - l4-v-aft: go right
+    - l4-d-aft: go left
+
+- id: l4-v-aft
+  name: The aft of the ship
+  description: |
+    [describe the exterior of the ship]
+    [clue: you can see jupiter in the distance]
+    [clue: there's nothing like a sensor array in sight]
+  exits:
+    - l4-p-tail: go right
+    - l4-s-tail: go left
+    - l4-v-mid1: go forward
+
+- id: l4-p-tail
+  name: The port tail
+  description: |
+    [describe the tail of the ship]
+    [clue: there's nothing like a sensor array in sight]
+  exits:
+    - l4-d-aft: go right
+    - l4-v-aft: go left
+
+# The first midships of the ship
+
+- id: l4-d-mid1
+  name: Amidships
+  description: |
+    [describe the midships of the ship]
+    [clue: you can see the sun in the distance]
+  exits:
+    - l4-v-mid1: go right
+    - l4-v-mid1: go left
+    - l4-d-mid2: go forward
+    - l4-d-aft: go aft
+
+- id: l4-v-mid1
+  name: Amidships
+  description: |
+    [describe the midships of the ship]
+    [clue: you can see jupiter in the distance]
+  exits:
+    - l4-v-mid1: go right
+    - l4-v-mid1: go left
+    - l4-d-mid2: go forward
+    - l4-d-aft: go aft
+
+# The second midships of the ship
+
+- id: l4-d-mid2
+  name: Amidships
+  description: |
+    [describe the midships of the ship]
+    [clue: you can see the sun in the distance]
+  exits:
+    - l4-s-wing: go right
+    - l4-p-wing: go left
+    - l4-d-fore: go forward
+    - l4-d-mid1: go aft
+
+- id: l4-s-wing
+  name: The starboard wing
+  description: |
+    [describe the wing of the ship]
+    [there's a sensor array here]
+  exits:
+    - l4-v-mid2: go right
+    - l4-d-mid2: go left
+    - sensor-array: plug the sonic screwdriver into the sensor array
+
+- id: l4-v-mid2
+  name: Amidships
+  description: |
+    [describe the midships of the ship]
+    [clue: you can see jupiter in the distance]
+  exits:
+    - l4-p-wing: go right
+    - l4-s-wing: go left
+    - l4-v-fore: go forward
+    - l4-v-mid1: go aft
+
+- id: l4-p-wing
+  name: The port wing
+  description: |
+    [describe the wing of the ship]
+    [clue: there's are things that look a lot but not quite like sensor arrays]
+  exits:
+    - l4-d-mid2: go right
+    - l4-v-mid2: go left
+
+# The fore of the ship
+
+- id: l4-d-bow
+  name: The bow of the ship
+  description: |
+    [describe the bow of the ship]
+    [clue: you can see the sun in the distance]
+  exits:
+    - l4-v-bow: go right
+    - l4-v-bow: go left
+    - l4-nose: go forward
+    - l4-d-mid2: go aft
+
+- id: l4-v-bow
+  name: The bow of the ship
+  description: |
+    [describe the bow of the ship]
+    [clue: you can see jupiter in the distance]
+  exits:
+    - l4-d-bow: go right
+    - l4-d-bow: go left
+    - l4-nose: go forward
+    - l4-v-mid2: go aft
+
+- id: l4-nose
+  name: The ship's nose
+  description: |
+    [describe the nose of the ship]
+    [a bright red ruby is embedded in the nosecone]
+  exits:
+    - l4-d-bow: go one aft
+    - l4-v-bow: go the other aft
+
+# The highly sensitive  sensor array has been overwhelmed by some an extrasolar radiation source
+# unstable tachyons, causing quantum rifts in space-time
+# We need to find the fundamental frequency of the artefacts phase harmonics.
+- id: sensor-array
+  name: The sensor array
+  description: |
+    [describe the sensor array]
+  lock:
+    prompt: "Enter frequency (Hz)"
+    answer: "440"
+    opens: l4-success
+  exits:
+    - screwdriver-t1: read sonic screwdriver terminal 1
+    - screwdriver-t2: read sonic screwdriver terminal 2
+    - l4-s-wing: unplug the sonic screwdriver
+
+- id: screwdriver-t1
+  name: Sonic Screwdriver Terminal 1
+  description: |
+    [base64 encoded text]
+  exits:
+    - screwdriver-t2: read other terminal
+    - sensor-array: check the sensor array
+
+- id: screwdriver-t2
+  name: Sonic Screwdriver Terminal 2
+  description: |
+    [base64 encoded text]
+  exits:
+    - screwdriver-t1: read other terminal
+    - sensor-array: check the sensor array
+
+- id: l4-success
+  name: The sensor array
+  description: |
+    [narrative!]
+    [the AI is super happy that you've fixed the sensor array!]
+    [now everything is back to normal!]
+    [let's get back inside and have a drink!]
+    [although maybe we should grab our magboots and restart the engines first]
+    [magboots are in your personal locker]
+  exits:
+    - l5-get-magboots: coast lazily back to the airlock

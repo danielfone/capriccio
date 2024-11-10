@@ -1,13 +1,15 @@
 #
-# Done. Needs a bit of polish.
+# Level 1: A Hazy Return
 #
 ---
+# Narrative
 - id: a-hazy-return
   description: |
     Conciousness gradually returns. You feel slightly groggy. How much time has passed?
   exits:
     l1-waking-up: wake up, slowly
 
+# Narrative
 - id: l1-waking-up
   name: "Cabin 23-B"
   description: |
@@ -20,7 +22,7 @@
 
     A cheerful voice sounds over the intercom: "Good morning all passengers,
     welcome to day TypeError: date is null. Aphelion Adventures is pleased to
-    announce that will shortly reach the Jovian system. Please report to the
+    announce that you will shortly reach the Jovian system. Please report to the
     galley for an emergency meeting at your earliest convience. DON'T PANIC."
   exits:
     l1-your-cabin: get up
@@ -45,16 +47,16 @@
     l1-your-cabin: give up for now
 
 - id: l1-corridor
-  name: Corridor to the galley
+  name: Corridor
   description: |
     The corridor is empty. On both sides, doors lead to the cabins of the other
-    passengers. At the end, the door to the galley is closed.
+    passengers. At the end, the access hatch to the galley is closed.
 
     Halfway down, one of the cabin doors has been left open. You can see a
     glowing light inside. Passenger cabins are strictly private, but no one
     seems to be around.
   exits:
-    l1-galley-lock: open the galley door
+    l1-access-hatch: open the access hatch
     l1-other-cabin: violate the privacy of another passenger
     l1-your-cabin: return to your cabin
 
@@ -67,14 +69,14 @@
   exits:
     l1-corridor: leave the cabin
 
-- id: l1-galley-lock
-  name: Galley door
+- id: l1-access-hatch
+  name: Access hatch to the galley
   description: |
-    The door to the galley is locked. You can hear the muffled sounds of a meeting inside.
+    The access hatch is locked.
   lock:
     prompt: "Enter 10 digit access code"
     answer: "4815162342"
-    opens: l2-galley-meeting
+    opens: l1-galley-access
     errors:
       - "Incorrect code"
       - "Try again"
@@ -85,3 +87,14 @@
 
   exits:
     l1-corridor: go back down the corridor
+
+# Narrative
+- id: l1-galley-access
+  name: Access hatch to the galley
+  description: |
+    ✅ The access panel flashes green and the hatch opens with a hiss.
+
+    A short ladder leads down into the galley. You can hear the murmur of voices
+    below.
+  exits:
+    l2-galley-meeting: descend into the galley

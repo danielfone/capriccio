@@ -10,7 +10,6 @@ SCENES = Dir.glob('scenes/*.yml').flat_map { |f| YAML.load_file(f) }
 
 get '/' do
   scene = SCENES.first
-  pp scene
   render_scene(scene)
 end
 
@@ -57,7 +56,7 @@ end
 # This method is used to compare the user's input with the expected answer
 # It is case-insensitive and ignores non-word characters, i.e. punctuation
 def answer_matches?(actual, expected)
-  actual.downcase.gsub(/\W/, '') == expected.downcase.gsub(/\W/, '')
+  actual.downcase.gsub(/[^a-z]/, '') == expected.downcase.gsub(/[^a-z]/, '')
 end
 
 helpers do

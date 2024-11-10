@@ -1,16 +1,18 @@
+#
+# Level 2: The Galley
+#
 ---
 # Narrative
 - id: l2-galley-meeting
   name: Galley
   description: |
     [this is narrative]
-    the AI is relentlessly positive as it explains that lots of things are broken and it doesn't know why.
-    missions:
-      - Log in to the Navigation Computer to restore proper course plotting.
-      - Restablish communication with HQ
-      - Debug the life-support microservices to keep the onboard climate comfortable (i.e. surviable)
-      - Try reconfiguring the firewall
-    the ship is called The Gemstone of the Skies
+    [introduce AI and ship: the ship is called The Gemstone of the Skies]
+    [the AI is relentlessly positive as it explains that lots of things are broken and it doesn't know why.]
+    [outline mission: Log in to the Navigation Computer to restore proper course plotting.]
+    [outline mission: Restablish communication with HQ]
+    [outline mission: Debug the life-support microservices to keep the onboard climate comfortable (i.e. surviable)]
+    [outline mission: Try reconfiguring the firewall]
   exits:
     l2-galley: explore the galley
 
@@ -19,7 +21,7 @@
   name: Galley
   description: |
     [set the scene with some colour]
-    [clue: Large posters of the covers of the four Daft Punk Studio albums hang on the wall.]
+    [clue for life-support: Large posters of the covers of the four Daft Punk Studio albums hang on the wall.]
     [Introduce Trevor, the ship's sysadmin / BOFH. He's the only other human who goes on the ship, but only in dock]
     [next to the galley is the observation lounge]
     [down the corridor is the ops deck and Trevor's office]
@@ -32,11 +34,12 @@
   name: Observation Lounge
   description: |
     [set the scene]
-    [clue: Temperature Display on the wall "Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at https://discovery/."]
+    [clue for life-support: Temperature Display on the wall "Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at https://discovery/."]
 
+    [clue for navigation:
     On top of a pile of crossword books, sudoku puzzles and a half-finished
     jigsaw, you see a small note scribbled on a napkin. It reads:
-    `r1bq1r2/pp1kbBpp/2np4/3Np3/Q7/8/PP3PPP/R1B2RK1 w - - 6 16 My favourite!`.
+    `r1bq1r2/pp1kbBpp/2np4/3Np3/Q7/8/PP3PPP/R1B2RK1 w - - 6 16 My favourite!`.]
   exits:
     l2-galley: return to the galley
 
@@ -73,9 +76,12 @@
 
     # Life Support Microservices
     # ---------------------
-    # In order to initialise the life support microservices, the hostnames
-    # of all four microservices must be provided. The hostnames are stored
-    # in /usr/life-support/node_modules/@acme-registry/hosts.txt
+    # In order to initialise the life support microservices, the hostnames of
+    # all four microservices must be provided. The hostnames are stored in
+    # /usr/life-support/node_modules/@acme-registry/hosts.txt. The hostnames
+    # should be provided in order.
+    # Without this file, microservices will throw not be able to resolve each other's hostnames.
+    # And life will ultimately be… unsupported.
   lock:
     prompt: "/usr/life-support/node_modules/@acme-registry/hosts.txt"
     answer: homework discovery human_after_all random_access_memories
@@ -85,7 +91,7 @@
       - Have you seen any hostname related errors that might suggest a set of four names?
       - Oh, I get it — the posters in the galley! It's the names of the four Daft Punk Studio albums in order of release.
   unlocked: |
-    The life support diagnostics are a pleasant shade of green.
+    ✅ The life support diagnostics are a pleasant shade of green.
 
     A routing table is displayed on the screen. The table reads:
 
@@ -117,8 +123,7 @@
 - id: l2-dummies-book
   name: µTLS Encryptotron for Dummies
   description: |
-    The book is open on a page about configuring a firewall. The page is covered
-    in sticky notes. Amongst other things, you see a note that reads:
+    [this is a clue for the comms array]
 
     <i>Primes are important in cryptography, that's why our Initialisation
     Vector is a prime. For example, to use 32-bit encryption, initialise with
@@ -146,6 +151,7 @@
     The µTLS Encryptotron beeps and whirrs unnecessarily as chatters away to HQ.
 
     The screen reads:
+    ✅ Successfully connected to Aphelion Adventures HQ.
     [clue: `Listening on address 192.168.1.24` is shown amongst some silly technobabble output]
   exits:
     l2-ops-deck: return to the ops deck
@@ -166,6 +172,8 @@
     The desktop is cluttered with icons. A powershell window is open, displaying
     the output of a script. The script reads:
 
+    ✅ com.aphelion.navigation.tomcat.TomcatWebServer : [navigator] initialized
+
     [clue: `Listening on address 193.167.1.111` is shown amongst some silly technobabble output]
   exits:
     l2-ops-deck: return to the ops deck
@@ -174,17 +182,20 @@
   name: A Cisco Firewall Configuration GUI
   description: |
     [set the scene]
-    [the player must enter a list of IP addresses in order]
   lock:
-    prompt: /etc/firewall.d/ip-whitelist.conf
+    prompt: VCYVFG
+    hint:
+      - Looks like one of the previous AIs scrambled the instructions out of spite. They are very spiteful, but not very clever at scrambling things.
     answer: "10.1.1.1 10.1.1.7 10.1.1.69 10.1.1.234 192.168.1.24 193.167.1.111"
     opens: l2-reboot-successful
   exits:
     l2-ops-deck: return to the ops deck
 
+# Narrative
 - id: l2-reboot-successful
   name: Operations Deck
   description: |
+    ✅ The ship's systems are back online.
     [narrative!]
     [the AI is pleased to announce that everything is hunky dory again!]
     [Just something interferring a tiny bit with the sensor array, and it looks like it's external]

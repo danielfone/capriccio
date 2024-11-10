@@ -1,0 +1,60 @@
+#
+# Level 3: Engineering
+#
+---
+# Narrative
+- id: l3-engineering
+  name: Engine Room
+  description: |
+    [set scene]
+    [describe exits]
+  exits:
+    l3-toolbox: open the toolbox
+    l3-telnet-server: check the telnet server
+
+- id: l3-toolbox
+  name: Engineering Toolbox
+  description: |
+    [set scene]
+    [The toolbox is a neatly ordered.]
+    [There's a sonic screwdriver, a blackberry, and a small hammer.]
+    [There's a blackberry in the toolbox labelled: maintenance]
+  exits:
+    l3-blackberry: check the blackberry
+    l3-engineering: return to the engineering room
+
+- id: l3-blackberry
+  name: Maintenance Blackberry
+  description: |
+    [set scene]
+    [Has project folder with corrupted files
+    [one of the files is called ./core_manifold/telemetry/processor]
+    [the file contents are `}n?:y??}0==1%)n(trqs|n|{?yna.)4-q,4+q(;2**i*5=q;l=i|l|{pam.<$stup`]
+    [there are other files in the folder, with similar gibberish]
+  exits:
+    l3-engineering: put the blackberry back in the toolbox
+
+- id: l3-telnet-server
+  name: Engineering Telnet Server
+  description: |
+    [set scene]
+    [We can't shutdown the engine safely because the core manifold telemetry processor has become corrupted.]
+    [If we can manually process the last 6 bytes of telemetry, we can safely shutdown the engine.]
+  lock:
+    prompt: "4 8 15 16 23 42"
+    answer: "n y n n n n"
+    opens: l3-out-the-airlock
+  exits:
+    l3-engineering: quit the telnet server
+
+- id: l3-out-the-airlock
+  name: On the float
+  description: |
+    ✅ Your stomach lurches and the ship drops beneath you as the engine shuts down.
+    [narrative!]
+    [the AI is super happy that you've shut down the engine safely!]
+    [time to take a wee spacewalk to fix the sensor array]
+    [the AI recommends you take the sonic screwdriver]
+    [the AI opens the first part of the airlock]
+  exits:
+    l4-s-aft: take the screwdriver and float out through the airlock
