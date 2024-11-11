@@ -13,9 +13,22 @@
 #
 # p - port, s - starboard, d - dorsal, v - ventral
 #
+# Once they get to the sensor array, they need to find the 'fundamental frequency'
+# of the artefacts phase harmonics. The player can find the frequency by reading
+# the sonic screwdriver terminals. These will be a base64 encoded .wav file and a
+# PNG of a sine wave. They player can use one of a number of techniques to determine
+# the frequency from the PNG graph or the WAV file. The answer is 440Hz.
+#
 ---
 
 # The aft of the ship
+- id: l4-spacewalk
+  name: Outside the ship
+  description: |
+    [AI introduces the exterior of the ship]
+    [remind the player that they need to find the sensor array]
+  exits:
+    l4-d-aft: carefully pull yourself along the hull
 
 - id: l4-d-aft
   name: The aft of the ship

@@ -1,10 +1,21 @@
 #
 # Level 3: Engineering
 #
----
-# Narrative
+# This level centres on a single challenge. The player needs to find the
+# relevant ruby script and execute it, passing in the prompt data. The ruby
+# script is garbled though, specifically it's backwards and has bits missing.
+#
+# The challenge is twofold: 1. Find the ruby script. 2. Fix the script.
+#
 - id: l3-engineering
   name: Engine Room
+  description: |
+    [ai introduces the engineering level]
+  exits:
+    l3-engineering-room: explore the engineering room
+
+- id: l3-engineering-room
+  name: Engineering Room
   description: |
     [set scene]
     [describe exits]
@@ -16,7 +27,6 @@
   name: Engineering Toolbox
   description: |
     [set scene]
-    [The toolbox is a neatly ordered.]
     [There's a sonic screwdriver, a blackberry, and a small hammer.]
     [There's a blackberry in the toolbox labelled: maintenance]
   exits:
@@ -27,10 +37,9 @@
   name: Maintenance Blackberry
   description: |
     [set scene]
-    [Has project folder with corrupted files
-    [one of the files is called ./core_manifold/telemetry/processor]
-    [the file contents are `}n?:y??}0==1%)n(trqs|n|{?yna.)4-q,4+q(;2**i*5=q;l=i|l|{pam.<$stup`]
-    [there are other files in the folder, with similar gibberish]
+    [generate project folder structure with half a dozen corrupted files]
+    [include a file called ./core_manifold/telemetry/processor with file contents: `}n?:y??}0==1%)n(trqs|n|{?yna.)4-q,4+q(;2**i*5=q;l=i|l|{pam.<$stup`]
+    [add similar gibberish for other fileds]
   exits:
     l3-engineering: put the blackberry back in the toolbox
 
@@ -57,4 +66,4 @@
     [the AI recommends you take the sonic screwdriver]
     [the AI opens the first part of the airlock]
   exits:
-    l4-s-aft: take the screwdriver and float out through the airlock
+    l4-spacewalk: take the screwdriver and float out through the airlock to LEVEL 4…

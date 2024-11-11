@@ -1,12 +1,14 @@
 #
 # Level 2: The Galley
 #
----
+# This level is the first one with some proper challenges. The player needs to
+# get 3 systems working again, and then unlock the level by using information
+# from the reinitialised systems (this is reconfiguring the firewall).
+#
 # Narrative
 - id: l2-galley-meeting
   name: Galley
   description: |
-    [this is narrative]
     [introduce AI and ship: the ship is called The Gemstone of the Skies]
     [the AI is relentlessly positive as it explains that lots of things are broken and it doesn't know why.]
     [outline mission: Log in to the Navigation Computer to restore proper course plotting.]
@@ -21,8 +23,8 @@
   name: Galley
   description: |
     [set the scene with some colour]
-    [clue for life-support: Large posters of the covers of the four Daft Punk Studio albums hang on the wall.]
     [Introduce Trevor, the ship's sysadmin / BOFH. He's the only other human who goes on the ship, but only in dock]
+    [include clue for life-support: Large posters of the covers of the four Daft Punk Studio albums hang on the wall.]
     [next to the galley is the observation lounge]
     [down the corridor is the ops deck and Trevor's office]
   exits:
@@ -34,9 +36,8 @@
   name: Observation Lounge
   description: |
     [set the scene]
-    [clue for life-support: Temperature Display on the wall "Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at https://discovery/."]
-
-    [clue for navigation:
+    [include clue for life-support: Temperature Display on the wall "Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at https://discovery/."]
+    [include clue for navigation:
     On top of a pile of crossword books, sudoku puzzles and a half-finished
     jigsaw, you see a small note scribbled on a napkin. It reads:
     `r1bq1r2/pp1kbBpp/2np4/3Np3/Q7/8/PP3PPP/R1B2RK1 w - - 6 16 My favourite!`.]
@@ -74,6 +75,7 @@
   description: |
     There is a README in the root directory of the server. It reads:
 
+    <pre>
     # Life Support Microservices
     # ---------------------
     # In order to initialise the life support microservices, the hostnames of
@@ -82,6 +84,7 @@
     # should be provided in order.
     # Without this file, microservices will throw not be able to resolve each other's hostnames.
     # And life will ultimately be… unsupported.
+    </pre>
   lock:
     prompt: "/usr/life-support/node_modules/@acme-registry/hosts.txt"
     answer: homework discovery human_after_all random_access_memories
@@ -206,4 +209,4 @@
 
     The AI opens a hatch in the floor, revealing a ladder down to the engine room.
   exits:
-    l3-engineering: slide down the ladder
+    l3-engineering: slide down the ladder to LEVEL 3…

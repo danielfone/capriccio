@@ -1,4 +1,12 @@
----
+#
+# Level 5: Back to the cabin
+#
+# They plyaer has done the hard part now. Ostensibly, they just need to restart
+# the engine before they can celebrate. In practice though, the player's
+# character is going to get distracted and have a drink. They'll then end up in
+# the time loop perhaps realising that their removal of the artefact didn't
+# really solve the problem.
+#
 - id: l5-get-magboots
   name: "Outside the ship"
   description: |
