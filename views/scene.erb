@@ -1,6 +1,11 @@
 <div id="<%= scene['id'] %>">
   <h1><%= scene['name'] %></h1>
 
+  <% if (file = scene['file']) %>
+    <textarea readonly cols="60" rows="20"><%= Base64::encode64(File.read(file)) %></textarea>
+  <% end %>
+
+
   <% if session[scene['id']] && scene['unlocked'] %>
     <%= simple_format scene['unlocked'] %>
   <% else %>
