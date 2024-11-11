@@ -118,13 +118,10 @@
 
         # Life-Support Microservices Initialization
 
-        To initialize the life-support microservices, please provide the hostnames
-        of all four services in order. Hostnames are stored in:
-
-        /usr/life-support/node_modules/@acme-registry/hosts.txt
-
-        Without this file, microservices will throw not be able to resolve each
-        other's hostnames and life will ultimately be... unsupported.
+        To initialize the life-support microservices, please provide the
+        hostnames of all four services in order. Without this, microservices
+        will throw not be able to resolve each other's hostnames and life will
+        ultimately be... unsupported.
 
     The cursor blinks, awaiting input.
 
@@ -210,7 +207,7 @@
       - "Wrong IV. Did you forget how to count?"
       - "Incorrect. Maybe cryptography isn't your thing."
     hints:
-      - "Barry chiming in! Remember the bit about primes and digit sums?"
+      - "Barry chiming in! Have you read the µTLS Encryptotron for Dummies book?"
       - "Sally noted that HQ is using **67-bit encryption** now."
       - "Find the smallest prime number whose digits sum to 67."
   unlocked: |
@@ -228,9 +225,9 @@
 - id: l2-navigation-computer
   name: Navigation Computer
   description: |
-    The Navigation Computer greets you with a nostalgic Windows XP login screen.
-    The username **Sally** is displayed beside a chess icon, along with a
-    password field.
+    The Navigation Computer greets you with a Windows XP login screen. The
+    username **Sally** is displayed beside a chess icon, along with a password
+    field.
 
   lock:
     prompt: "Enter Password:"
@@ -255,19 +252,21 @@
     > "Listening on address: **193.167.1.111**"
 
   exits:
-    l2-ops-deck: Log off and turn away
+    l2-ops-deck: Continue exploring the Operations Deck
 
 - id: l2-firewall-configuration
   name: Firewall Configuration Terminal
   description: |
-    The firewall GUI displays a jumbled prompt:
+    The firewall GUI displays a prompt:
 
     > "VCYVFG"
 
-    It seems the interface has been tampered with.
+    An input field blinks, waiting for your response. The help text reads:
+
+    > Entries must be ordered numerically.
 
   lock:
-    prompt: "Enter access list:"
+    prompt: "Enter list:"
     answer: "10.1.1.1 10.1.1.7 10.1.1.69 10.1.1.234 192.168.1.24 193.167.1.111"
     opens: l2-reboot-successful
     errors:
@@ -294,7 +293,7 @@
     Nothing to fret over!"
 
     "We'll just need you to pop outside and give it a little tweak. But first,
-    we'll have to shut down the engines for safety. It's all standard procedure,
+    we'll have to shut down the engine for safety. It's all standard procedure,
     probably in the manual somewhere—though that might be a few versions out of
     date."
 

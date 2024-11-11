@@ -68,7 +68,7 @@
 
     Now that the emergency is over, you feel a little more relaxed. You could use a drink.
 
-    Surely the engines can wait a little longer.
+    Surely the engine can wait a little longer.
   exits:
     l5-a-drink: Against your better judgment, mix a drink
 

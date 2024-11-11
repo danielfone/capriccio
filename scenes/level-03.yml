@@ -8,10 +8,10 @@
 
     Barry's holographic avatar pops up beside you, grinning ear to ear. "Welcome
     to the heart of the ship! Isn't it thrilling down here? Now, we'll need to
-    safely shut down the engines before your little spacewalk. I tried to shut
+    safely shut down the engine before your little spacewalk. I tried to shut
     it down myself, but it looks like the telemetry processor is feeling a bit
     under the weather! If you could just manually process the telemetry data, we
-    can shut down the engines safely. Easy peasy!"
+    can shut down the engine safely. Easy peasy!"
 
   exits:
     l3-engineering-room: Look around the engineering room
@@ -86,12 +86,12 @@
 - id: l3-out-the-airlock
   name: Airlock Entrance
   description: |
-    ✅ The engines wind down with a low hum, and the your stomach lurches as the
+    ✅ The engine winds down with a low hum, and your stomach lurches as the
     ship's thrust gravity fades away. You float gently off the floor,
     weightless.
 
-    Barry materializes, stand on the floor, oblivious to the loss of gravity.
-    "Marvelous job! The engines are now safely offline. Time for a little stroll
+    Barry materializes, standing on the floor, oblivious to the loss of gravity.
+    "Marvelous job! The engine are now safely offline. Time for a little stroll
     among the stars! Isn't this exciting?"
 
     He gestures toward the **sonic screwdriver** you found earlier. "You'll want

@@ -71,19 +71,19 @@
   name: "Cabin 23-B"
   description: |
     You open your eyes to the cozy confines of your cabin. The delightful burn
-    of a **Pan Galactic Gargle Blaster** still tingles on your tongue. A
-    peculiar sense of déjà vu washes over you, like you've danced this cosmic
-    waltz before. Your head pulses gently in sync with the ship's engines.
+    of a Pan Galactic Gargle Blaster still tingles on your tongue. A
+    peculiar sense of déjà vu washes over you. Your head throbs in sync with the
+    ship's engine.
 
-    Wait — the ship's engines?! Weren't they off? Flashes of memory flicker:
+    Wait — the ship's engine?! Weren't they off? Flashes of memory flicker:
     floating weightless in the void, the dizzying spin of distant stars,
     searching for... something.
 
     Suddenly, a cheerful voice chirps over the intercom:
 
-    > "Good morning, esteemed passenger! Welcome to day **NaN** of your voyage.
-    Aphelion Adventures is **delighted** to announce that we'll soon reach the
-    majestic **Jovian system**! Please report to the galley for a slightly
+    > "Good morning, esteemed passengers! Welcome to day **NaN** of your voyage.
+    Aphelion Adventures is *delighted* to announce that we'll soon reach the
+    majestic **Jovian system**! Please report to the galley for a small
     emergency meeting at your earliest convenience. And remember, **DON'T
     PANIC!**"
   exits:
@@ -94,13 +94,12 @@
   name: "Cabin 23-B"
   description: |
     Your cabin is cozy, adorned with retro-futuristic decor that harkens back to
-    a time that never was. The gentle hum of the ship's engines is oddly
-    soothing. Through the porthole, **Jupiter** looms, a colossal marbled jewel
-    just a bit smaller than Earth's moon from this distance.
+    a time that never was. The gentle hum of the ship's engine is oddly
+    soothing. Through the porthole, **Jupiter** looms, a marbled jewel just a
+    bit smaller than Earth's moon from this distance.
 
     In the corner stands your personal locker, its keypad blinking lazily. A
-    door leads out to the corridor, inviting further exploration—or perhaps
-    another adventure.
+    door leads out to the corridor.
   exits:
     l1-your-locker-keypad: Check your locker
     l1-corridor: Go through the door
@@ -110,8 +109,8 @@
   name: Your Cabin Locker
   description: |
     The keypad on your locker glows unenthusiastically. You stare at it, but the
-    access code eludes you like a word on the tip of your tongue. No
-    worries — you're certain it'll come back to you eventually.
+    access code eludes you. No worries — you're certain it'll come back to you
+    eventually.
   exits:
     l1-your-cabin: Give up for now
 

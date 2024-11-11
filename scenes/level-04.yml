@@ -129,7 +129,7 @@
   exits:
     l4-s-wing: go right
     l4-p-wing: go left
-    l4-d-fore: go forward
+    l4-d-bow: go forward
     l4-d-mid1: go aft
 
 - id: l4-s-wing
@@ -154,7 +154,7 @@
   exits:
     l4-p-wing: go right
     l4-s-wing: go left
-    l4-v-fore: go forward
+    l4-v-bow: go forward
     l4-v-mid1: go aft
 
 - id: l4-p-wing
@@ -216,7 +216,7 @@
     waveforms.
 
     Barry chimes in, "Seems the sensor array is being overwhelmed by some pesky
-    external interference! I'm detecting som unstable tachyons, perhaps causing
+    external interference! I'm detecting some unstable tachyons, perhaps causing
     quantum rifts in space-time.
 
     If we can identify the **fundamental frequency** of the interference, we can
@@ -266,7 +266,7 @@
     "Now, with everything shipshape, how about we head back inside? A
     celebratory drink sounds perfect, doesn't it?"
 
-    He adds, "Oh, and before we get too cozy, we'll need to restart the engines.
+    He adds, "Oh, and before we get too cozy, we'll need to restart the engine.
     But no rush! Maybe grab your **magboots** from your locker when you're back
     onboard."
 
