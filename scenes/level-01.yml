@@ -62,7 +62,7 @@
 # Narrative
 - id: a-hazy-return
   description: |
-    Conciousness gradually returns. You feel slightly groggy. How much time has passed?
+    Consciousness gradually returns. You feel slightly groggy. How much time has passed?
   exits:
     l1-waking-up: wake up, slowly
 
@@ -70,88 +70,112 @@
 - id: l1-waking-up
   name: "Cabin 23-B"
   description: |
-    You come to in your cabin. The opulent burn of a Pan Galactic Gargle
-    Blaster still lingers on your throat. You feel a strange sense of deja vu.
-    Your head throbs in time with the ship's engines.
+    You open your eyes to the cozy confines of your cabin. The delightful burn
+    of a **Pan Galactic Gargle Blaster** still tingles on your tongue. A
+    peculiar sense of déjà vu washes over you, like you've danced this cosmic
+    waltz before. Your head pulses gently in sync with the ship's engines.
 
-    The ship's engines?! Hadn't they been off? You remember being on
-    the float… the vertigo of open space… you were looking for something…
+    Wait — the ship's engines?! Weren't they off? Flashes of memory flicker:
+    floating weightless in the void, the dizzying spin of distant stars,
+    searching for... something.
 
-    A cheerful voice sounds over the intercom: "Good morning all passengers,
-    welcome to day TypeError: date is null. Aphelion Adventures is pleased to
-    announce that you will shortly reach the Jovian system. Please report to the
-    galley for an emergency meeting at your earliest convience. DON'T PANIC."
+    Suddenly, a cheerful voice chirps over the intercom:
+
+    > "Good morning, esteemed passenger! Welcome to day **NaN** of your voyage.
+    Aphelion Adventures is **delighted** to announce that we'll soon reach the
+    majestic **Jovian system**! Please report to the galley for a slightly
+    emergency meeting at your earliest convenience. And remember, **DON'T
+    PANIC!**"
   exits:
-    l1-your-cabin: get up
+    l1-your-cabin: Get up
+
 
 - id: l1-your-cabin
   name: "Cabin 23-B"
   description: |
-    The cabin is small, but comfortable. The ship's engines hum softly beneath
-    you. You can see Jupiter through the window, a little smaller than the moon.
+    Your cabin is cozy, adorned with retro-futuristic decor that harkens back to
+    a time that never was. The gentle hum of the ship's engines is oddly
+    soothing. Through the porthole, **Jupiter** looms, a colossal marbled jewel
+    just a bit smaller than Earth's moon from this distance.
 
-    Your personal locker is in the corner. A door leads out to the corridor.
+    In the corner stands your personal locker, its keypad blinking lazily. A
+    door leads out to the corridor, inviting further exploration—or perhaps
+    another adventure.
   exits:
-    l1-your-locker-keypad: check your locker
-    l1-corridor: go through the door
+    l1-your-locker-keypad: Check your locker
+    l1-corridor: Go through the door
+
 
 - id: l1-your-locker-keypad
-  name: Your cabin locker
+  name: Your Cabin Locker
   description: |
-    The keyboard glows unethusiastically. You can't remember the code, but you're
-    sure it'll come back to you.
+    The keypad on your locker glows unenthusiastically. You stare at it, but the
+    access code eludes you like a word on the tip of your tongue. No
+    worries — you're certain it'll come back to you eventually.
   exits:
-    l1-your-cabin: give up for now
+    l1-your-cabin: Give up for now
 
 - id: l1-corridor
   name: Corridor
   description: |
-    The corridor is empty. On both sides, doors lead to the cabins of the other
-    passengers. At the end, the access hatch to the galley is closed.
+    The corridor stretches out before you, lined with identical doors leading to
+    other passengers' cabins. Soft lighting casts a warm glow, and the carpet
+    is needlessly plush. At the far end, the access hatch to the
+    galley is firmly closed.
 
-    Halfway down, one of the cabin doors has been left open. You can see a
-    glowing light inside. Passenger cabins are strictly private, but no one
-    seems to be around.
+    Halfway down, you notice a cabin door slightly ajar, a blue-green glow
+    spilling into the hallway. Passenger cabins are strictly private, of
+    course.
   exits:
-    l1-access-hatch: open the access hatch
-    l1-other-cabin: violate the privacy of another passenger
-    l1-your-cabin: return to your cabin
+    l1-access-hatch: Try to open the access hatch
+    l1-other-cabin: Sneak into the open cabin
+    l1-your-cabin: Return to your cabin
+
 
 - id: l1-other-cabin
-  name: A cabin you shouldn't be in
+  name: A Cabin You Shouldn't Be In
   description: |
-    The cabin is empty, but a screen has a TV show paused on it. You don't
-    recognise it, but the title bar says `S01 E18 Numbers`. They must have
-    been watching it before they left for the emergency meeting.
+    You slip quietly into the vacant cabin. It's a mirror image of your own, but
+    with an eclectic assortment of souvenirs scattered about. On the
+    wall-mounted screen, a paused TV show displays the title: **"S01E18 -
+    Numbers"**.
+
+    Curious. Perhaps the occupant was catching up on some classic entertainment
+    before the meeting.
   exits:
-    l1-corridor: leave the cabin
+    l1-corridor: Leave the cabin (before anyone notices)
 
 - id: l1-access-hatch
-  name: Access hatch to the galley
+  name: Access Hatch to the Galley
   description: |
-    The access hatch is locked.
+    The access hatch stands before you, its keypad awaiting input. A small sign
+    above reads: "**Authorized Passengers Only**." Looks like you'll need a
+    **10-digit access code** to proceed.
+
+    How does anyone remember a 10-digit code?
   lock:
-    prompt: "Enter 10 digit access code"
+    prompt: "Access Code:"
     answer: "4815162342"
     opens: l1-galley-access
     errors:
-      - "Incorrect code"
-      - "Try again"
+      - "Access Denied. Stop wasting my time."
+      - "Incorrect. Did you forget the code already?"
     hints:
-      - Maybe the other passengers needed a reminder of the code before they left their cabin?
-      - I suspect the episode in question will help you with the lock.
-      - Try researching "S01 E18 Numbers" and use 6 numbers you find.
-
+      - "Hmm… let me think. Maybe the other passengers needed a reminder of the code before they left their cabin?"
+      - "Okey dokey, did you try looking up the name of that TV episode?"
+      - "Ah ha! The code is the sequence of numbers from **Lost**, Season 1, Episode 18."
   exits:
-    l1-corridor: go back down the corridor
+    l1-corridor: Go back down the corridor
 
-# Narrative
 - id: l1-galley-access
-  name: Access hatch to the galley
+  name: Access Hatch to the Galley
   description: |
-    ✅ The access panel flashes green and the hatch opens with a hiss.
+    ✅ The access panel flashes **green**, and the hatch opens with a satisfying
+    hiss. A gentle waft of enticing aromas greets you — perhaps synthetic bacon
+    and eggs?
 
-    A short ladder leads down into the galley. You can hear the murmur of voices
-    below.
+    A short ladder descends into the galley below. You can hear the faint murmur
+    of voices and the clinking of virtual cutlery. Time to see what's so
+    **"emergency"** about this meeting.
   exits:
-    l2-galley-meeting: descend to LEVEL 2…
+    l2-galley-meeting: Descend into *LEVEL 2*
