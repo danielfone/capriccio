@@ -1,212 +1,305 @@
-#
 # Level 2: The Galley
-#
-# This level is the first one with some proper challenges. The player needs to
-# get 3 systems working again, and then unlock the level by using information
-# from the reinitialised systems (this is reconfiguring the firewall).
-#
-# Narrative
+
 - id: l2-galley-meeting
   name: Galley
   description: |
-    [introduce AI and ship: the ship is called The Gemstone of the Skies]
-    [the AI is relentlessly positive as it explains that lots of things are broken and it doesn't know why.]
-    [outline mission: Log in to the Navigation Computer to restore proper course plotting.]
-    [outline mission: Restablish communication with HQ]
-    [outline mission: Debug the life-support microservices to keep the onboard climate comfortable (i.e. surviable)]
-    [outline mission: Try reconfiguring the firewall]
-  exits:
-    l2-galley: explore the galley
+    You step into the bustling galley of **The Gemstone of the Skies**. The
+    other passengers mill around tables, looking as confused as you feel.
 
-# Scene
+    Suddenly, the ship's AI materializes as a shimmering avatar wearing an
+    old-fashioned captain's hat.
+
+    "Ahoy there, cherished passengers! I'm Barry," he beams with enthusiasm. "We
+    hope you're enjoying your stellar cruise! In an exciting twist, we've set
+    sail without our usual sysadmin, Sally. She's decided to take some time off
+    to—how should I put it—work on her positivity! Isn't that splendid? This
+    gives us the perfect chance to bond and have a bit of fun! There are just a
+    few teeny-tiny malfunctions needing attention. Nothing to worry about! But
+    we'd be ever so grateful if you could lend a hand with a few quick fixes."
+
+    Barry continues, his grin unwavering:
+
+    - "First, please **log in to the Navigation Computer** to help us get back
+    on the proper course. Unplanned detours will be charged at full rate!"
+
+    - "Second, we'd appreciate it if you could **re-establish communication with
+    headquarters**. They get very lonely without our regular updates."
+
+    - "Third, a quick debug of the **life-support microservices** would be
+    splendid. More for your benefit than mine, to be honest!"
+
+    - "Finally, perhaps you could **reconfigure the internal firewall**. It's
+    great when the ship can talk to itself."
+
+    "Thanks a million! You're the best!" Barry winks and vanishes with a
+    flourish.
+  exits:
+    l2-galley: Take a look around the galley
+
 - id: l2-galley
   name: Galley
   description: |
-    [set the scene with some colour]
-    [Introduce Trevor, the ship's sysadmin / BOFH. He's the only other human who goes on the ship, but only in dock]
-    [include clue for life-support: Large posters of the covers of the four Daft Punk Studio albums hang on the wall.]
-    [next to the galley is the observation lounge]
-    [down the corridor is the ops deck and Trevor's office]
-  exits:
-    l2-obs-longue: go to the observation lounge
-    l2-trevors-office: enter Trevor's office
-    l2-ops-deck: poke around the operations deck
+    The galley buzzes with a mix of curiosity and mild concern. Passengers
+    exchange puzzled glances while soft instrumental music plays in the
+    background.
 
-- id: l2-obs-longue
+    The walls are adorned with giant posters of four iconic **Daft Punk** album
+    covers, their enigmatic helmets reflecting endless possibilities. Alongside
+    them, vintage arcade machines hum quietly, offering classics like "Space
+    Invaders" and "Asteroid Blaster."
+
+    Cozy bean bag chairs and retro-futuristic lamps give the space a laid-back
+    vibe.
+
+    To your left, the entrance to the **Observation Lounge** beckons with a soft
+    glow. Down a corridor to the right lie the **Operations Deck** and what
+    appears to be **Sally's Office**.
+
+  exits:
+    l2-obs-lounge: Venture into the Observation Lounge
+    l2-sallys-office: Peek into Sally's Office
+    l2-ops-deck: Explore the Operations Deck
+
+- id: l2-obs-lounge
   name: Observation Lounge
   description: |
-    [set the scene]
-    [include clue for life-support: Temperature Display on the wall "Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at https://discovery/."]
-    [include clue for navigation:
-    On top of a pile of crossword books, sudoku puzzles and a half-finished
-    jigsaw, you see a small note scribbled on a napkin. It reads:
-    `r1bq1r2/pp1kbBpp/2np4/3Np3/Q7/8/PP3PPP/R1B2RK1 w - - 6 16 My favourite!`.]
+    The Observation Lounge is a panoramic marvel, with floor-to-ceiling windows
+    showcasing the endless expanse of space. Stars twinkle against the velvet
+    darkness, and distant nebulae paint the horizon with swirls of color.
+
+    A large **Temperature Display** on the wall flickers oddly, showing an error
+    message:
+
+    > "Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at https://discovery/."
+
+    On a nearby table cluttered with crossword books, sudoku puzzles, and a
+    half-finished jigsaw puzzle of the Horsehead Nebula, you notice a napkin
+    with a scribbled note:
+
+    > `r1bq1r2/pp1kbBpp/2np4/3Np3/Q7/8/PP3PPP/R1B2RK1 w - - 6 16 My favourite!`
   exits:
-    l2-galley: return to the galley
+    l2-galley: Head back to the galley
 
-- id: l2-trevors-office
-  name: Trevor's Office
-  description:
-    Trevor's office is a mess. The desk is covered in papers and empty coffee
-    cups. A book of chess puzzles is open on the desk.
-
-    Under the desk, you can see a small server blinking away. On the front
-    of the server, just above the CD tray, a tiny scrawl of vivid reads
-    "life-support-001". It appears to be plugged in to one of the monitors on
-    the desk.
-
-    One of the other monitors has a note stuck to it.
-  exits:
-    l2-trevors-note: read the note
-    l2-life-support-server: wiggle the mouse on the life support server
-    l2-galley: return to the galley
-
-- id: l2-trevors-note
-  name: Trevor's Note
+- id: l2-sallys-office
+  name: Sally's Office
   description: |
-    The note reads:
+    Sally's office is a sanctuary of organized chaos. Neatly stacked manuals and
+    technical guides line the shelves, covering topics from quantum computing to
+    "The Art of Unix Programming." A steaming mug with the slogan "Keep Calm and
+    Reboot" sits on the desk next to a meticulously maintained workstation.
 
-    <i>HQ now using 67-bit encryption on comms channel. MUCH better than 64 bits.</i>
+    Under the desk, a small server hums steadily. A label above the drive bay
+    reads "life-support-001" in tidy handwriting. One of the monitors displays a
+    login prompt, while another has a note stuck to it.
+
   exits:
-    l2-trevors-office: put the note back
+    l2-sallys-note: Read the note on the monitor
+    l2-life-support-server: Examine the life-support server
+    l2-galley: Slip back to the galley
+
+- id: l2-sallys-note
+  name: Sally's Note
+  description: |
+    The note on the monitor reads:
+
+    > "Reminder: HQ switched to **67-bit encryption** on the comms channel.
+    Because 64 bits just wasn't enough. Double-check the initialization
+    vectors!"
+
+    It's clear that Sally keeps meticulous notes, likely to navigate the
+    ever-changing whims of corporate policies.
+  exits:
+    l2-sallys-office: Continue examining the office
 
 - id: l2-life-support-server
-  name: Life Support Server
+  name: Life-Support Server
   description: |
-    There is a README in the root directory of the server. It reads:
+    The terminal displays a README file:
 
-    <pre>
-    # Life Support Microservices
-    # ---------------------
-    # In order to initialise the life support microservices, the hostnames of
-    # all four microservices must be provided. The hostnames are stored in
-    # /usr/life-support/node_modules/@acme-registry/hosts.txt. The hostnames
-    # should be provided in order.
-    # Without this file, microservices will throw not be able to resolve each other's hostnames.
-    # And life will ultimately be… unsupported.
-    </pre>
+        # Life-Support Microservices Initialization
+
+        To initialize the life-support microservices, please provide the hostnames
+        of all four services in order. Hostnames are stored in:
+
+        /usr/life-support/node_modules/@acme-registry/hosts.txt
+
+        Without this file, microservices will throw not be able to resolve each
+        other's hostnames and life will ultimately be... unsupported.
+
+    The cursor blinks, awaiting input.
+
   lock:
-    prompt: "/usr/life-support/node_modules/@acme-registry/hosts.txt"
+    prompt: "Enter hostnames:"
     answer: homework discovery human_after_all random_access_memories
     opens: l2-life-support-server
+    errors:
+      - "Incorrect. Did you even read the README?"
+      - "Wrong again. Maybe stick to tic-tac-toe."
     hints:
-      - In my experience, sysadmins like to name hosts after cultural references they enjoy. They are human after all.
-      - Have you seen any hostname related errors that might suggest a set of four names?
-      - Oh, I get it — the posters in the galley! It's the names of the four Daft Punk Studio albums in order of release.
+      - "Barry here! I've noticed that Sally named servers after her favorite music. She is human, after all."
+      - "Maybe those album covers in the galley are more than just decor?"
+      - "The hostnames are the titles of Daft Punk's four studio albums, in order."
   unlocked: |
-    ✅ The life support diagnostics are a pleasant shade of green.
+    ✅ The terminal displays:
 
-    A routing table is displayed on the screen. The table reads:
+    ```
+    Life-support microservices initialized successfully.
 
-    +-------------------------------------+
-    | Hostname               | IP Address |
-    |------------------------|------------|
-    | homework               | 10.1.1.1   |
-    | discovery              | 10.1.1.7   |
-    | human_after_all        | 10.1.1.69  |
-    | random_access_memories | 10.1.1.234 |
-    +-------------------------------------+
+    Hostname               | IP Address
+    -----------------------|------------
+    homework               | 10.1.1.1
+    discovery              | 10.1.1.7
+    human_after_all        | 10.1.1.69
+    random_access_memories | 10.1.1.234
+    ```
+
+    System diagnostics show all life-support functions are operational.
+
   exits:
-    l2-trevors-office: close the terminal
+    l2-sallys-office: Step back from the workstation
 
-# Scene
 - id: l2-ops-deck
   name: Operations Deck
   description: |
-    [set the scene]
-    [clue: An error message over the oxygen supply monitor: `cannot resolve random_access_memories: Unknown host`]
-    [describe exits]
+    The Operations Deck is a hub of blinking lights and idle consoles. Screens
+    display system statuses, some with cheerful green checkmarks, others with
+    glaring red alerts.
+
+    Past logs from an oxygen supply monitor flashes a concerning message:
+
+    > "Error: cannot resolve random_access_memories - Unknown host"
+
+    A well-worn yellow book titled "**µTLS Encryptotron for Dummies**" lies open
+    on a console. Nearby, the **Communications Array** and the **Navigation
+    Computer** await attention. A sophisticated-looking **Firewall Configuration
+    Terminal** pulses softly.
+
   exits:
-    l2-comms-array: check the comms array
-    l2-navigation-computer: check the navigation computer
-    l2-firewall-configuration: configure the firewall
-    l2-dummies-book: inspect the yellow book
-    l2-galley: return to the galley
+    l2-comms-array: Investigate the Communications Array
+    l2-navigation-computer: Access the Navigation Computer
+    l2-firewall-configuration: Tinker with the firewall settings
+    l2-dummies-book: Browse through the yellow book
+    l2-galley: Head back to the galley
 
 - id: l2-dummies-book
-  name: µTLS Encryptotron for Dummies
+  name: "µTLS Encryptotron for Dummies"
   description: |
-    [this is a clue for the comms array]
+    Flipping through the pages, a highlighted section catches your eye:
 
-    <i>Primes are important in cryptography, that's why our Initialisation
-    Vector is a prime. For example, to use 32-bit encryption, initialise with
-    the smallest prime whose digits sum to 32. This is 6899. 6899 is a prime
-    whose digits sum to 32. 6 + 8 + 9 + 9 = 32. 32-bit encryption. Très bien
-    secure.</i>
+    > *"Primes are paramount in cryptography! For enhanced security, initialize
+    your encryption with a prime number where the sum of its digits equals the
+    bit length. For instance, for 32-bit encryption, use the smallest prime
+    whose digits sum to 32 — like 6899 (6+8+9+9=32). Brilliantly secure!"*
   exits:
-    l2-ops-deck: close the book
+    l2-ops-deck: Close the book
 
 - id: l2-comms-array
   name: Communications Array
   description: |
-    [set the scene]
-    [this is a µTLS Encryptotron, it's trying to connect to HQ but the handshake is failing]
+    This is a µTLS Encryptotron Communications Array. It displays a connection error:
+
+    > "Handshake failed: Invalid Initialization Vector"
+
+    A prompt awaits your input.
+
   lock:
-    prompt: "µTLS Encryptotron Initialisation Vector"
-    errors: ["Handshake failed: Incorrect IV"]
+    prompt: "Initialization Vector:"
     answer: "59899999"
     opens: l2-comms-array
+    errors:
+      - "Wrong IV. Did you forget how to count?"
+      - "Incorrect. Maybe cryptography isn't your thing."
     hints:
-      - Did I see a note about primes in the µTLS Encryptotron for Dummies book?
-      - I don't know what 'bits' Trevor configured for the encryption.
-      - According to the note in Trevor's office, you'll need to find the smallest prime whose digits sum to 67.
+      - "Barry chiming in! Remember the bit about primes and digit sums?"
+      - "Sally noted that HQ is using **67-bit encryption** now."
+      - "Find the smallest prime number whose digits sum to 67."
   unlocked: |
-    The µTLS Encryptotron beeps and whirrs unnecessarily as chatters away to HQ.
+    The console shows:
 
-    The screen reads:
-    ✅ Successfully connected to Aphelion Adventures HQ.
-    [clue: `Listening on address 192.168.1.24` is shown amongst some silly technobabble output]
+    > "Connection established with Aphelion Adventures HQ."
+
+    Amidst the scrolling text, you notice:
+
+    > "Listening on address: **192.168.1.24**"
+
   exits:
-    l2-ops-deck: return to the ops deck
+    l2-ops-deck: Step away from the console
 
 - id: l2-navigation-computer
   name: Navigation Computer
   description: |
-    [set the scene]
-    [A serenely blue Windows XP login screen awaits. Beside a chess icon is the username `Trevor` and a password field.]
+    The Navigation Computer greets you with a nostalgic Windows XP login screen.
+    The username **Sally** is displayed beside a chess icon, along with a
+    password field.
+
   lock:
-    prompt: "Trevor's Password"
-    errors: ["Did you forget your password?"]
+    prompt: "Enter Password:"
     answer: "Qg4#"
     opens: l2-navigation-computer
+    errors:
+      - "Access denied. Maybe try 'password123' next time?"
+      - "Incorrect. Brute force won't help you here."
     hints:
-      - Looks like Trevor's really into Chess puzzles.
+      - "Barry here! Perhaps Sally's love for chess holds the key?"
+      - "Did you see any chess notation scribbled somewhere?"
+      - "The chess notation on that napkin translates to a board setup. The next move must be the password."
   unlocked: |
-    The desktop is cluttered with icons. A powershell window is open, displaying
-    the output of a script. The script reads:
+    The desktop loads, cluttered with folders named "Project_Final_V2" and "Do_Not_Delete."
 
-    ✅ com.aphelion.navigation.tomcat.TomcatWebServer : [navigator] initialized
+    A terminal window displays:
 
-    [clue: `Listening on address 193.167.1.111` is shown amongst some silly technobabble output]
+    > ✅ "com.aphelion.navigation.tomcat.TomcatWebServer : [navigator] initialized"
+
+    Among the details, you spot:
+
+    > "Listening on address: **193.167.1.111**"
+
   exits:
-    l2-ops-deck: return to the ops deck
+    l2-ops-deck: Log off and turn away
 
 - id: l2-firewall-configuration
-  name: A Cisco Firewall Configuration GUI
+  name: Firewall Configuration Terminal
   description: |
-    [set the scene]
+    The firewall GUI displays a jumbled prompt:
+
+    > "VCYVFG"
+
+    It seems the interface has been tampered with.
+
   lock:
-    prompt: VCYVFG
-    hint:
-      - Looks like one of the previous AIs scrambled the instructions out of spite. They are very spiteful, but not very clever at scrambling things.
+    prompt: "Enter access list:"
     answer: "10.1.1.1 10.1.1.7 10.1.1.69 10.1.1.234 192.168.1.24 193.167.1.111"
     opens: l2-reboot-successful
+    errors:
+      - "Invalid input. Did you let a toddler type that?"
+      - "Access list rejected. Networking not your strong suit?"
+    hints:
+      - "Barry here! Perhaps the prompt is encoded?"
+      - "Maybe try a simple cipher like ROT13."
+      - "'VCYVFG' decoded is 'IPLIST'. Compile the IP addresses you've found."
   exits:
-    l2-ops-deck: return to the ops deck
+    l2-ops-deck: Leave the terminal
 
-# Narrative
 - id: l2-reboot-successful
   name: Operations Deck
   description: |
-    ✅ The ship's systems are back online.
-    [narrative!]
-    [the AI is pleased to announce that everything is hunky dory again!]
-    [Just something interferring a tiny bit with the sensor array, and it looks like it's external]
-    [we'll need to do a wee spacewalk to fix it]
-    [engines off first]
-    [no worry at all, this is all in the manual]
-    [although, the manual is a bit out of date]
+    ✅ Systems across the ship flicker back to life. Lights brighten, and
+    monitors display reassuring green statuses.
 
-    The AI opens a hatch in the floor, revealing a ladder down to the engine room.
+    Barry reappears, clapping enthusiastically. "Fantastic work, everyone! I
+    knew you lot could get it done!"
+
+    He continues, "Just one **teeny-tiny** issue left—a minor disturbance with
+    the sensor array. Something external is causing a bit of interference.
+    Nothing to fret over!"
+
+    "We'll just need you to pop outside and give it a little tweak. But first,
+    we'll have to shut down the engines for safety. It's all standard procedure,
+    probably in the manual somewhere—though that might be a few versions out of
+    date."
+
+    A hatch slides open in the floor, revealing a ladder leading down to the
+    engine room.
+
   exits:
-    l3-engineering: slide down the ladder to LEVEL 3…
+    l3-engineering: Descend into LEVEL 3
