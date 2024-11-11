@@ -6,12 +6,14 @@
   <title><%= [@scene_name, "The Gemstone of the Skies"].compact.join(" | ") %> </title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&display=swap" rel="stylesheet">
   <style>
     body {
       background-color: #222830;
       font-size: 1.2rem;
       font-family: monospace;
+      font-weight: 300;
+      font-optical-sizing: auto;
       color: #aeb7c6;
       color: rgb(209, 215, 224);
       line-height: 1.7;
@@ -19,6 +21,10 @@
       margin: 0 auto;
       max-width: 800px;
       padding: 1rem;
+    }
+
+    strong {
+      font-weight: 500;
     }
 
     body {

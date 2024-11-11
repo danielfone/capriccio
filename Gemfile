@@ -10,3 +10,5 @@ gem "puma", "~> 6.4"
 group :development do
   gem "rerun", "~> 0.14.0"
 end
+
+gem "commonmarker", "~> 1.1"

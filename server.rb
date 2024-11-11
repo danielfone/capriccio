@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'yaml'
 require 'securerandom'
+require 'commonmarker'
 
 enable :sessions
 set :session_secret, ENV.fetch('SESSION_SECRET') { SecureRandom.hex(64) }
@@ -61,6 +62,9 @@ end
 
 helpers do
   def simple_format(text)
-    text.to_s.split("\n\n").map { |line| "<p>#{line}</p>" }.join
+    Commonmarker.to_html(text, options: {
+      parse: { smart: true },
+      render: { hardbreaks: false }
+    })
   end
 end
