@@ -15,63 +15,74 @@
     recklessly. Like a school kid on a shopping trolley, the novelty of gliding
     has somewhat gone to your head.
   exits:
-    l5-your-cabin-float: float backwards through the door to your cabin
+    l5-your-cabin-float: Float backwards through the door to your cabin
 
 - id: l5-your-cabin-float
   name: "Cabin 23-B"
   description: |
-    Somehow, the cabin seems smaller when you're floating in it.
+    Somehow, the cabin seems smaller when you're floating in it. The lack of
+    gravity adds a new dimension to the familiar space.
 
-    Your locker hangs above you. Your hand terminal floats nearby with a
-    notification on the screen.
+    Your locker hangs above you. Nearby, your hand terminal floats gently with a
+    notification blinking on the screen.
   exits:
-    l5-your-locker-keypad-float: open locker
-    l5-hand-terminal: read the notification
+    l5-your-locker-keypad-float: Open locker
+    l5-hand-terminal: Read the notification
 
 - id: l5-hand-terminal
-  name: The hand terminal
+  name: The Hand Terminal
   description: |
-    It's a message from your local Ruby group, reminding you that the next
-    meet up is in two weeks. You suddenly recall your password… it was the
-    middle name of your favourite meetup organiser!
+    You grab the hand terminal, stabilizing yourself as you read the message:
+
+    > **Reminder:** The next meetup of the Ruby Group is in two weeks!
+
+    A wave of nostalgia hits you. You suddenly recall your locker password — it
+    was the middle name of your favorite meetup organizer!
   exits:
-    l5-your-cabin-float: let the terminal float away
-    l50your-locker-keypad-float: twist awkwardly to the keypad
+    l5-your-cabin-float: Let the terminal float away
+    l5-your-locker-keypad-float: Twist awkwardly to the keypad
 
 - id: l5-your-locker-keypad-float
-  name: Your cabin locker
+  name: Your Cabin Locker
   description: |
-    The keyboard glows unethusiastically.
+    The keypad glows unenthusiastically, awaiting your input.
   lock:
-    prompt: "Password"
+    prompt: "Enter locker password:"
     answer: "Stephen"
     opens: l5-your-locker
     errors:
-      - "That is not the correct password"
-      - "Try again"
+      - "Access denied. Wrong password."
+      - "Incorrect. Maybe think harder."
+    hints:
+      - "Barry here! Isn't it your favorite organizer's middle name?"
+      - "Starts with 'S'..."
   exits:
-    l5-your-cabin-float: bounce off in frustration
+    l5-your-cabin-float: Bounce off in frustration
 
 - id: l5-your-locker
-  name: Your open locker
+  name: Your Open Locker
   description: |
-    You open your locker. The mag boots are tumbling slowly behind a half-empty
-    bottle of Ol' Janx Spirit. It occurs to you that you've never tried to mix a
-    Pan Galactic Gargle Blaster on the float before.
+    You open your locker. The magboots are tumbling slowly behind a half-empty
+    bottle of **Ol' Janx Spirit**. It occurs to you that you've never tried to
+    mix a Pan Galactic Gargle Blaster on the float before.
 
     Now that the emergency is over, you feel a little more relaxed. You could use a drink.
 
     Surely the engines can wait a little longer.
   exits:
-    l5-a-drink: against your better judgement, mix a drink
+    l5-a-drink: Against your better judgment, mix a drink
 
 - id: l5-a-drink
-  name: One drink in
+  name: One Drink In
   description: |
-    You mix the Pan Galactic Gargle Blaster as if you've done it a thousand times before. You drink it… carefully.
+    You mix the **Pan Galactic Gargle Blaster** as if you've done it a thousand
+    times before. You drink it... carefully.
 
-    It feels, as they say, like having your brains smashed out by a slice of lemon wrapped round a large gold brick.
+    It feels, as they say, like having your brains smashed out by a slice of
+    lemon wrapped around a large gold brick.
 
-    You feel better now, more confident, more alive. You consider looking for the others to celebrate your success. But first…
+    You feel better now, more confident, more alive. You consider looking for
+    the others to celebrate your success. But first...
+
   exits:
-    a-hazy-return: "just one more drink :)"
+    a-hazy-return: "Just one more drink…"
