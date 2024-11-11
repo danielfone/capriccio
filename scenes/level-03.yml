@@ -1,69 +1,103 @@
-#
 # Level 3: Engineering
-#
-# This level centres on a single challenge. The player needs to find the
-# relevant ruby script and execute it, passing in the prompt data. The ruby
-# script is garbled though, specifically it's backwards and has bits missing.
-#
-# The challenge is twofold: 1. Find the ruby script. 2. Fix the script.
-#
+
 - id: l3-engineering
   name: Engine Room
   description: |
-    [ai introduces the engineering level]
+    You descend the ladder into the dimly lit engine room. The hum of machinery
+    surrounds you, punctuated by the occasional hiss of steam.
+
+    Barry's holographic avatar pops up beside you, grinning ear to ear. "Welcome
+    to the heart of the ship! Isn't it thrilling down here? Now, we'll need to
+    safely shut down the engines before your little spacewalk. I tried to shut
+    it down myself, but it looks like the telemetry processor is feeling a bit
+    under the weather! If you could just manually process the telemetry data, we
+    can shut down the engines safely. Easy peasy!"
+
   exits:
-    l3-engineering-room: explore the engineering room
+    l3-engineering-room: Look around the engineering room
 
 - id: l3-engineering-room
   name: Engineering Room
   description: |
-    [set scene]
-    [describe exits]
+    The engineering room is a labyrinth of pipes, valves, and flickering
+    consoles. The air smells faintly of ozone and lubricants. Overhead, cables
+    crisscross like metallic vines.
+
+    Against one wall, a hefty **toolbox** sits invitingly, its drawers slightly
+    ajar. On the opposite side, a dusty terminal displays a blinking cursor,
+    indicating a **telnet server** awaiting input.
   exits:
-    l3-toolbox: open the toolbox
-    l3-telnet-server: check the telnet server
+    l3-toolbox: Investigate the toolbox
+    l3-telnet-server: Approach the terminal
 
 - id: l3-toolbox
   name: Engineering Toolbox
   description: |
-    [set scene]
-    [There's a sonic screwdriver, a blackberry, and a small hammer.]
-    [There's a blackberry in the toolbox labelled: maintenance]
+    You open the hefty toolbox to find an eclectic assortment of gadgets:
+
+    - A **sonic screwdriver**, its sleek design pulsing with a faint blue light.
+    - A vintage **BlackBerry** device labeled "Maintenance" in fading letters.
+    - A small, slightly dented **hammer** that looks well-used.
+
   exits:
-    l3-blackberry: check the blackberry
-    l3-engineering: return to the engineering room
+    l3-blackberry: Examine the BlackBerry device
+    l3-engineering-room: Close the toolbox
 
 - id: l3-blackberry
-  name: Maintenance Blackberry
+  name: Maintenance BlackBerry
   description: |
-    [set scene]
-    [generate project folder structure with half a dozen corrupted files]
-    [include a file called ./core_manifold/telemetry/processor with file contents: `}n?:y??}0==1%)n(trqs|n|{?yna.)4-q,4+q(;2**i*5=q;l=i|l|{pam.<$stup`]
-    [add similar gibberish for other fileds]
+    The BlackBerry's screen flickers to life with a tap. Navigating its archaic
+    interface, the most recently updated file is **core_manifold/telemetry/processor**
+
+    Opening the file, you're greeted with a jumble of code:
+
+    ```
+    }n?:y??}0==1%)n(trqs|n|{?yna.)4-q,4+q(;2**i*5=q;l=i|l|{pam.<$stup
+    ```
+
+    Other files are similarly corrupted, filled with nonsensical characters and symbols.
   exits:
-    l3-engineering: put the blackberry back in the toolbox
+    l3-engineering-room: Place the BlackBerry back
 
 - id: l3-telnet-server
-  name: Engineering Telnet Server
+  name: Engineering Terminal
   description: |
-    [set scene]
-    [We can't shutdown the engine safely because the core manifold telemetry processor has become corrupted.]
-    [If we can manually process the last 6 bytes of telemetry, we can safely shutdown the engine.]
+    The terminal screen glows with lines of code and error messages. A prominent message reads:
+
+    > Warning: Core manifold telemetry processor corrupted. Manual input required to proceed with engine shutdown.
+    > Unprocessed telemetry buffer: 4 8 15 16 23 42
+
+    The terminal awaits your input.
+
   lock:
-    prompt: "4 8 15 16 23 42"
+    prompt: "Enter processed telemetry data:"
     answer: "n y n n n n"
     opens: l3-out-the-airlock
+    errors:
+      - "Incorrect input. Did you misread the data?"
+      - "Wrong again. Maybe engineering isn't your forte?"
+    hints:
+      - "Barry here! Perhaps the corrupted script on the BlackBerry holds a clue?"
+      - "Try reversing and unscrambling that messy code you found."
+      - "Process the code to match the input '4 8 15 16 23 42'."
   exits:
-    l3-engineering: quit the telnet server
+    l3-engineering-room: Step back from the terminal
 
 - id: l3-out-the-airlock
-  name: On the float
+  name: Airlock Entrance
   description: |
-    ✅ Your stomach lurches and the ship drops beneath you as the engine shuts down.
-    [narrative!]
-    [the AI is super happy that you've shut down the engine safely!]
-    [time to take a wee spacewalk to fix the sensor array]
-    [the AI recommends you take the sonic screwdriver]
-    [the AI opens the first part of the airlock]
+    ✅ The engines wind down with a low hum, and the your stomach lurches as the
+    ship's thrust gravity fades away. You float gently off the floor,
+    weightless.
+
+    Barry materializes, stand on the floor, oblivious to the loss of gravity.
+    "Marvelous job! The engines are now safely offline. Time for a little stroll
+    among the stars! Isn't this exciting?"
+
+    He gestures toward the **sonic screwdriver** you found earlier. "You'll want
+    to take that nifty gadget with you. Perfect for all sorts of fixes!"
+
+    A nearby hatch slides open, revealing the airlock chamber bathed in a soft
+    blue light.
   exits:
-    l4-spacewalk: take the screwdriver and float out through the airlock to LEVEL 4…
+    l4-spacewalk: Enter the airlock and prepare for your spacewalk (Level 4)
