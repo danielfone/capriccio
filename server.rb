@@ -57,7 +57,7 @@ end
 # This method is used to compare the user's input with the expected answer
 # It is case-insensitive and ignores non-word characters, i.e. punctuation
 def answer_matches?(actual, expected)
-  actual.downcase.gsub(/[^a-z]/, '') == expected.downcase.gsub(/[^a-z]/, '')
+  actual.downcase.gsub(/[^a-z1-9]/, '') == expected.downcase.gsub(/[^a-z1-9]/, '')
 end
 
 helpers do
