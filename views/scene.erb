@@ -22,7 +22,7 @@
     <% end %>
 
     <% if hint && (hint_text = lock.dig('hints', hint-1)) %>
-      <p><%= hint_text %></p>
+      <p class="hint"><%= hint_text %></p>
       <% if lock.dig('hints', hint) %>
         <p><a href="/scene/<%= scene['id'] %>?hint=<%= hint+1 %>">Hint <%= hint+1 %></a></p>
       <% end %>

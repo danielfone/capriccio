@@ -89,7 +89,7 @@
     Reboot" sits on the desk next to a meticulously maintained workstation.
 
     Under the desk, a small server hums steadily. A label above the drive bay
-    reads "life-support-001" in tidy handwriting. One of the monitors displays a
+    reads **"life-support-001"** in tidy handwriting. One of the monitors displays a
     login prompt, while another has a note stuck to it.
 
   exits:
@@ -120,7 +120,7 @@
 
         To initialize the life-support microservices, please provide the
         hostnames of all four services in order. Without this, microservices
-        will throw not be able to resolve each other's hostnames and life will
+        will not be able to resolve each other's hostnames and life will
         ultimately be... unsupported.
 
     The cursor blinks, awaiting input.
@@ -162,7 +162,7 @@
     display system statuses, some with cheerful green checkmarks, others with
     glaring red alerts.
 
-    Past logs from an oxygen supply monitor flashes a concerning message:
+    Logs from an **oxygen supply monitor** contain a concerning message:
 
     > "Error: cannot resolve random_access_memories - Unknown host"
 
@@ -183,10 +183,11 @@
   description: |
     Flipping through the pages, a highlighted section catches your eye:
 
-    > *"Primes are paramount in cryptography! For enhanced security, initialize
-    your encryption with a prime number where the sum of its digits equals the
-    bit length. For instance, for 32-bit encryption, use the smallest prime
-    whose digits sum to 32 — like 6899 (6+8+9+9=32). Brilliantly secure!"*
+    > *"Primes are paramount in cryptography! For enhanced security, the µTLS
+    Encryptotron uses a prime number for an Initialization Vector. The sum of
+    its digits equals the encryption bit length. For instance, for 32-bit
+    encryption, use the smallest prime whose digits sum to 32 — i.e. 6899
+    (6+8+9+9=32). Brilliantly secure!"*
   exits:
     l2-ops-deck: Close the book
 
@@ -208,10 +209,10 @@
       - "Incorrect. Maybe cryptography isn't your thing."
     hints:
       - "Barry chiming in! Have you read the µTLS Encryptotron for Dummies book?"
-      - "Sally noted that HQ is using **67-bit encryption** now."
-      - "Find the smallest prime number whose digits sum to 67."
+      - "Did Sally note how many bits HQ is using for encryption now?"
+      - "The Initialization Vector is the smallest prime number whose digits sum to 67."
   unlocked: |
-    The console shows:
+    ✅ The console shows:
 
     > "Connection established with Aphelion Adventures HQ."
 
@@ -239,13 +240,13 @@
     hints:
       - "Barry here! Perhaps Sally's love for chess holds the key?"
       - "Did you see any chess notation scribbled somewhere?"
-      - "The chess notation on that napkin translates to a board setup. The next move must be the password."
+      - "The chess notation on that napkin translates to a board setup. Try analysing the board using a popular chess website. The next move must be the password."
   unlocked: |
-    The desktop loads, cluttered with folders named "Project_Final_V2" and "Do_Not_Delete."
+    ✅ The desktop loads, cluttered with folders named "Project_Final_V2" and "Do_Not_Delete."
 
     A terminal window displays:
 
-    > ✅ "com.aphelion.navigation.tomcat.TomcatWebServer : [navigator] initialized"
+    > "com.aphelion.navigation.tomcat.TomcatWebServer : [navigator] initialized"
 
     Among the details, you spot:
 
@@ -288,13 +289,13 @@
     Barry reappears, clapping enthusiastically. "Fantastic work, everyone! I
     knew you lot could get it done!"
 
-    He continues, "Just one **teeny-tiny** issue left—a minor disturbance with
+    He continues, "Just one *teeny-tiny* issue left — a minor disturbance with
     the sensor array. Something external is causing a bit of interference.
     Nothing to fret over!"
 
     "We'll just need you to pop outside and give it a little tweak. But first,
-    we'll have to shut down the engine for safety. It's all standard procedure,
-    probably in the manual somewhere—though that might be a few versions out of
+    we'll have to shut down the drive for safety. It's all standard procedure,
+    probably in the manual somewhere — though that might be a few versions out of
     date."
 
     A hatch slides open in the floor, revealing a ladder leading down to the

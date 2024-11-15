@@ -3,15 +3,15 @@
 - id: l3-engineering
   name: Engine Room
   description: |
-    You descend the ladder into the dimly lit engine room. The hum of machinery
-    surrounds you, punctuated by the occasional hiss of steam.
+    You descend the ladder into the dimly lit engine room. The hum of the ship's
+    drive surrounds you.
 
     Barry's holographic avatar pops up beside you, grinning ear to ear. "Welcome
     to the heart of the ship! Isn't it thrilling down here? Now, we'll need to
-    safely shut down the engine before your little spacewalk. I tried to shut
+    safely shut down the drive before your little spacewalk. I tried to shut
     it down myself, but it looks like the telemetry processor is feeling a bit
     under the weather! If you could just manually process the telemetry data, we
-    can shut down the engine safely. Easy peasy!"
+    can shut down the drive safely. Easy peasy!"
 
   exits:
     l3-engineering-room: Look around the engineering room
@@ -20,7 +20,7 @@
   name: Engineering Room
   description: |
     The engineering room is a labyrinth of pipes, valves, and flickering
-    consoles. The air smells faintly of ozone and lubricants. Overhead, cables
+    consoles. The air smells faintly of ozone. Overhead, cables
     crisscross like metallic vines.
 
     Against one wall, a hefty **toolbox** sits invitingly, its drawers slightly
@@ -64,7 +64,8 @@
   description: |
     The terminal screen glows with lines of code and error messages. A prominent message reads:
 
-    > Warning: Core manifold telemetry processor corrupted. Manual input required to proceed with engine shutdown.
+    > Warning: Core manifold telemetry processor corrupted. Manual input required to proceed with drive shutdown.
+    >
     > Unprocessed telemetry buffer: 4 8 15 16 23 42
 
     The terminal awaits your input.
@@ -77,21 +78,21 @@
       - "Incorrect input. Did you misread the data?"
       - "Wrong again. Maybe engineering isn't your forte?"
     hints:
-      - "Barry here! Perhaps the corrupted script on the BlackBerry holds a clue?"
-      - "Try reversing and unscrambling that messy code you found."
-      - "Process the code to match the input '4 8 15 16 23 42'."
+      - "Barry here! Perhaps the corrupted script on the BlackBerry will help?"
+      - "Try reversing and fixing that messy code you found."
+      - "Fix the script, then use the numbers above as input to the script, one per line. The script will output the processed telemetry data."
   exits:
     l3-engineering-room: Step back from the terminal
 
 - id: l3-out-the-airlock
   name: Airlock Entrance
   description: |
-    ✅ The engine winds down with a low hum, and your stomach lurches as the
+    ✅ The drive winds down with a low hum, and your stomach lurches as the
     ship's thrust gravity fades away. You float gently off the floor,
     weightless.
 
     Barry materializes, standing on the floor, oblivious to the loss of gravity.
-    "Marvelous job! The engine are now safely offline. Time for a little stroll
+    "Marvelous job! The drive is now safely offline. Time for a little stroll
     among the stars! Isn't this exciting?"
 
     He gestures toward the **sonic screwdriver** you found earlier. "You'll want
