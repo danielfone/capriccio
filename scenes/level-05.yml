@@ -25,21 +25,14 @@
 
     Your locker hangs above you. Nearby, your hand terminal floats gently with a
     notification blinking on the screen.
-  exits:
-    l5-your-locker-keypad-float: Open locker
-    l5-hand-terminal: Read the notification
 
-- id: l5-hand-terminal
-  name: The Hand Terminal
-  description: |
     You grab the hand terminal, stabilizing yourself as you read the message:
 
-    > **Reminder:** The next meetup of the Ruby Group is in two weeks!
+    > Reminder: The next meetup of the Ruby Group is in two weeks!
 
-    A wave of nostalgia hits you. You suddenly recall your locker password — it
-    was the middle name of your favorite meetup organizer!
+    A wave of nostalgia hits you. You suddenly recall your locker password — **it
+    was the middle name of your favorite meetup organizer!**
   exits:
-    l5-your-cabin-float: Let the terminal float away
     l5-your-locker-keypad-float: Twist awkwardly to the keypad
 
 - id: l5-your-locker-keypad-float
@@ -68,7 +61,7 @@
 
     Now that the emergency is over, you feel a little more relaxed. You could use a drink.
 
-    Surely the engine can wait a little longer.
+    Surely the drive can wait a little longer.
   exits:
     l5-a-drink: Against your better judgment, mix a drink
 
