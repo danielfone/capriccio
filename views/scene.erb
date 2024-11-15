@@ -32,7 +32,7 @@
   <% end %>
   <% end %>
 
-  <% Hash(scene['exits']).each do |scene_id, direction| %>
+  <% Array(scene['exits']).each do |scene_id, direction| %>
     <p><a href="/scene/<%= scene_id %>"><%= direction %></a></p>
   <% end %>
 </div>

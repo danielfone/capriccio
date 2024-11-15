@@ -25,8 +25,8 @@
   name: Exterior Airlock
   description: |
     You step out of the airlock into the vastness of space. The stars shine
-    brilliantly against the infinite black, and the gentle curve of **The
-    Gemstone of the Skies** stretches out before you.
+    brilliantly against the infinite black, and the gentle curve of *The
+    Gemstone of the Skies* stretches out before you.
 
     Barry's voice comes through your helmet comms, as enthusiastic as ever.
     "Isn't it breathtaking? A perfect evening for a spacewalk! Now, we just need
@@ -66,7 +66,7 @@
   name: Aft Section
   description: |
     On the ship's aft, you feel a slight disorientation as you adjust your
-    perspective. In the distance, the **Jupiter** dominates the starfield, its
+    perspective. In the distance, **Jupiter** dominates the starfield, its
     swirling storms faintly visible.
 
     The sensor array isn't located here, but the view is spectacular.
@@ -100,7 +100,7 @@
 
   exits:
     l4-v-mid1: go right
-    l4-v-mid1: go left
+    l4-v-mid1_: go left
     l4-d-mid2: go forward
     l4-d-aft: go aft
 
@@ -112,10 +112,10 @@
 
     The sensor array isn't here, but you sense you're getting closer.
   exits:
-    l4-v-mid1: go right
-    l4-v-mid1: go left
-    l4-d-mid2: go forward
-    l4-d-aft: go aft
+    l4-d-mid1: go right
+    l4-d-mid1_: go left
+    l4-v-mid2: go forward
+    l4-v-aft: go aft
 
 # The second midships of the ship
 
@@ -178,7 +178,7 @@
     The Sun is visible high above, too faint to cast any shadows.
   exits:
     l4-v-bow: go right
-    l4-v-bow: go left
+    l4-v-bow_: go left
     l4-nose: go forward
     l4-d-mid2: go aft
 
@@ -191,7 +191,7 @@
     The sensor array isn't here, and the planet looms larger each time you look.
   exits:
     l4-d-bow: go right
-    l4-d-bow: go left
+    l4-d-bow_: go left
     l4-nose: go forward
     l4-v-mid2: go aft
 

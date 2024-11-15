@@ -15,7 +15,7 @@ get '/' do
 end
 
 get '/scene/:id' do
-  scene = SCENES.find { |r| r['id'] == params[:id] } or halt 404
+  scene = SCENES.find { |r| r['id'] == params[:id].gsub(/_$/, '') } or halt 404
   hint = params[:hint].to_i if params[:hint]
   @scene_name = scene['name']
 
