@@ -43,10 +43,9 @@
     exchange puzzled glances while soft instrumental music plays in the
     background.
 
-    The walls are adorned with giant posters of four iconic **Daft Punk** album
-    covers, their enigmatic helmets reflecting endless possibilities. Alongside
-    them, vintage arcade machines hum quietly, offering classics like "Space
-    Invaders" and "Asteroid Blaster."
+    The walls are adorned with giant posters of the four **Daft Punk studio
+    albums**. Alongside them, vintage arcade machines hum quietly, offering
+    classics like "Space Invaders" and "Asteroid Blaster."
 
     Cozy bean bag chairs and retro-futuristic lamps give the space a laid-back
     vibe.
@@ -76,7 +75,7 @@
     half-finished jigsaw puzzle of the Horsehead Nebula, you notice a napkin
     with a scribbled note:
 
-    > `r1bq1r2/pp1kbBpp/2np4/3Np3/Q7/8/PP3PPP/R1B2RK1 w - - 6 16 My favourite!`
+    > r1bq1r2/pp1kbBpp/2np4/3Np3/Q7/8/PP3PPP/R1B2RK1 w - - 6 16 _(My favourite mate-in-1!)_
   exits:
     l2-galley: Head back to the galley
 
@@ -210,7 +209,7 @@
     hints:
       - "Barry chiming in! Have you read the µTLS Encryptotron for Dummies book?"
       - "Did Sally note how many bits HQ is using for encryption now?"
-      - "The Initialization Vector is the smallest prime number whose digits sum to 67."
+      - "The Initialization Vector is the smallest prime number whose digits sum to 67. Ruby's Prime.each method might help."
   unlocked: |
     ✅ The console shows:
 
@@ -264,10 +263,10 @@
 
     An input field blinks, waiting for your response. The help text reads:
 
-    > Entries must be ordered numerically.
+    > *The 6 entries must be ordered numerically.*
 
   lock:
-    prompt: "Enter list:"
+    prompt: "Entries:"
     answer: "10.1.1.1 10.1.1.7 10.1.1.69 10.1.1.234 192.168.1.24 193.167.1.111"
     opens: l2-reboot-successful
     errors:

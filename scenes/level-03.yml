@@ -52,7 +52,7 @@
     Opening the file, you're greeted with a jumble of code:
 
     ```
-    }n?:y??}0==1%)n(trqs|n|{?yna.)4-q,4+q(;2**i*5=q;l=i|l|{pam.<$stup
+    }n?:y??}0==1%)n(trqs.eliF|n|{?tna.]4-q,4+q[;2**i*5=q;j_ot.l=i|l|{pam.tilps.nioj.a_ot.<$stup
     ```
 
     Other files are similarly corrupted, filled with nonsensical characters and symbols.
@@ -64,15 +64,15 @@
   description: |
     The terminal screen glows with lines of code and error messages. A prominent message reads:
 
-    > Warning: Core manifold telemetry processor corrupted. Manual input required to proceed with drive shutdown.
+    > Warning: Core manifold telemetry processor corrupted. Expected format: /[yn]+/
     >
-    > Unprocessed telemetry buffer: 4 8 15 16 23 42
+    > Unprocessed telemetry buffer: 03 15 08 14 07 13
 
     The terminal awaits your input.
 
   lock:
     prompt: "Enter processed telemetry data:"
-    answer: "n y n n n n"
+    answer: "y n y n n y"
     opens: l3-out-the-airlock
     errors:
       - "Incorrect input. Did you misread the data?"
