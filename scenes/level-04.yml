@@ -231,9 +231,9 @@
       - "Incorrect frequency. Did you skip music class?"
       - "Nope. Maybe try tuning in better."
     hints:
-      - "Barry here! Perhaps the sonic screwdriver has some data that could help?"
-      - "Maybe those terminals on the screwdriver hold valuable information?"
-      - "Analyzing the data might reveal a familiar frequency—think standard tuning."
+      - "Barry here! Looks like the sonic screwdriver terminals are outputting binary data that's base64-encoded."
+      - "I think I see a clue to the file type in the first few bytes of each file."
+      - "You should have a visual and audio representation of the frequency. There are many approaches to working out the frequency. Your on your own from here!"
   exits:
     screwdriver-t1: Access sonic screwdriver terminal 1
     screwdriver-t2: Access sonic screwdriver terminal 2
@@ -271,4 +271,4 @@
     onboard."
 
   exits:
-    l5-get-magboots: Drift back toward the airlock (Level 5)
+    l5-get-magboots: Drift back toward the airlock on LEVEL 5
