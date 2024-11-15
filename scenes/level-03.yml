@@ -101,4 +101,4 @@
     A nearby hatch slides open, revealing the airlock chamber bathed in a soft
     blue light.
   exits:
-    l4-spacewalk: Enter the airlock and prepare for your spacewalk (Level 4)
+    l4-spacewalk: Enter the airlock and prepare for your spacewalk on Level 4
