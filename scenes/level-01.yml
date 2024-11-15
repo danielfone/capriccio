@@ -170,11 +170,7 @@
   name: Access Hatch to the Galley
   description: |
     ✅ The access panel flashes **green**, and the hatch opens with a satisfying
-    hiss. A gentle waft of enticing aromas greets you — perhaps synthetic bacon
-    and eggs?
-
-    A short ladder descends into the galley below. You can hear the faint murmur
-    of voices and the clinking of virtual cutlery. Time to see what's so
-    **"emergency"** about this meeting.
+    hiss.  A short ladder descends into the galley below. You can hear the faint
+    murmur of voices. Time to see what's so **"emergency"** about this meeting.
   exits:
     l2-galley-meeting: Descend into *LEVEL 2*
