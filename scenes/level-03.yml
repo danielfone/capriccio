@@ -64,7 +64,7 @@
   description: |
     The terminal screen glows with lines of code and error messages. A prominent message reads:
 
-    > Warning: Core manifold telemetry processor corrupted. Expected format: /[yn]+/
+    > Warning: Core manifold telemetry processor corrupted. Expected format /[yn]+/
     >
     > Unprocessed telemetry buffer: 03 15 08 14 07 13
 
@@ -78,9 +78,9 @@
       - "Incorrect input. Did you misread the data?"
       - "Wrong again. Maybe engineering isn't your forte?"
     hints:
-      - "Barry here! Perhaps the corrupted script on the BlackBerry will help?"
-      - "Try reversing and fixing that messy code you found."
-      - "Fix the script, then use the numbers above as input to the script, one per line. The script will output the processed telemetry data."
+      - "Barry here! That script on the BlackBerry looks like some strangely corrupted Ruby code to me."
+      - "Have you looked at it from all angles?"
+      - "Try reversing the code, fixing the 3 substitutions, then passing numbers above as STDIN to the script. The script should output `y` or `n` for each number."
   exits:
     l3-engineering-room: Step back from the terminal
 

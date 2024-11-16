@@ -133,8 +133,8 @@
       - "Wrong again. Maybe stick to tic-tac-toe."
     hints:
       - "Barry here! I've noticed that Sally named servers after her favorite music. She is human, after all."
-      - "Maybe those album covers in the galley are more than just decor?"
-      - "The hostnames are the titles of Daft Punk's four studio albums, in order."
+      - "Maybe those album posters in the galley are more than just decor?"
+      - "The hostnames are the titles of Daft Punk's four studio albums, in release order."
   unlocked: |
     ✅ The terminal displays:
 
@@ -268,7 +268,7 @@
     hints:
       - "Barry here! Perhaps the prompt is encoded?"
       - "Maybe try a simple cipher like ROT13."
-      - "'VCYVFG' decoded is 'IPLIST'. Compile the IP addresses you've found."
+      - "'VCYVFG' decoded is 'IPLIST'. Enter the 3 IP addresses you've found in numeric order."
   exits:
     l2-ops-deck: Leave the terminal
 
