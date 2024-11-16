@@ -115,12 +115,12 @@
   description: |
     The terminal displays a README file:
 
-        # Life-Support Microservices Initialization
-
-        To initialize the life-support microservices, please provide the
-        hostnames of all four services in order. Without this, microservices
-        will not be able to resolve each other's hostnames and life will
-        ultimately be... unsupported.
+    > **Life-Support Microservices Initialization**
+    >
+    > To initialize the life-support microservices, please provide the
+    hostnames of all four services in order. Without this, microservices
+    will not be able to resolve each other's hostnames and life will
+    ultimately be... unsupported.
 
     The cursor blinks, awaiting input.
 
@@ -138,16 +138,9 @@
   unlocked: |
     ✅ The terminal displays:
 
-    ```
-    Life-support microservices initialized successfully.
-
-    Hostname               | IP Address
-    -----------------------|------------
-    homework               | 10.1.1.1
-    discovery              | 10.1.1.7
-    human_after_all        | 10.1.1.69
-    random_access_memories | 10.1.1.234
-    ```
+    > "Life-support microservice registry initialized."
+    >
+    > "Listening on **10.1.1.69**"
 
     System diagnostics show all life-support functions are operational.
 
@@ -263,11 +256,11 @@
 
     An input field blinks, waiting for your response. The help text reads:
 
-    > *The 6 entries must be ordered numerically.*
+    > *The 3 entries must be ordered numerically.*
 
   lock:
     prompt: "Entries:"
-    answer: "10.1.1.1 10.1.1.7 10.1.1.69 10.1.1.234 192.168.1.24 193.167.1.111"
+    answer: "10.1.1.69 192.168.1.24 193.167.1.111"
     opens: l2-reboot-successful
     errors:
       - "Invalid input. Did you let a toddler type that?"
