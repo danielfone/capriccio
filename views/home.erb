@@ -1,0 +1,44 @@
+<div class="info-box">
+  <h2>README.txt</h2>
+  <ul>
+    <li>This is a hybrid escape room / text-based adventure game I hacked together for our local Ruby meetup.</li>
+    <li>There are <b>7 alphanumeric locks</b>. Punctuation and whitespace is ignored in the input.</li>
+    <li>There are <b>3 hints for each lock</b>. Use them if you need to. The first should be subtle, the third basically tells you what to do.</li>
+    <li>Playing with a team, it takes <b>60-90 minutes</b>. It usually takes longer on your own.</li>
+    <li>Unlike a traditional escape room, you're expected to use internet and programming to solve the puzzles.</li>
+  </ul>
+</div>
+
+<p class="begin-link">
+<a href="/scene/<%=first_scene['id']%>">
+  BEGIN
+</a>
+</p>
+
+<footer>
+  Crafted with reckless whimsy by <a href="https://daniel.fone.net.nz">Daniel Fone</a>
+</footer>
+
+<style>
+  .info-box {
+    background-color: #7773;
+    padding: 0.25rem 1rem;
+    margin: 1rem;
+  }
+
+  .begin-link {
+    text-align: center;
+    font-size: 24pt;
+  }
+
+  li {
+    margin-bottom: 1rem;
+  }
+
+  footer {
+    margin-top: 4rem;
+    font-size: 0.8rem;
+    color: #aeb7c6;
+    text-align: center;
+  }
+</style>

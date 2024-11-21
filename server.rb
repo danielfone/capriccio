@@ -10,8 +10,8 @@ set :session_secret, ENV.fetch('SESSION_SECRET') { SecureRandom.hex(64) }
 SCENES = Dir.glob('scenes/*.yml').flat_map { |f| YAML.load_file(f) }
 
 get '/' do
-  scene = SCENES.first
-  render_scene(scene)
+  first_scene = SCENES.first
+  erb :home, layout: :main, locals: { first_scene: }
 end
 
 get '/scene/:id' do
