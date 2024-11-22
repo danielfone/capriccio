@@ -23,15 +23,13 @@
     Somehow, the cabin seems smaller when you're floating in it. The lack of
     gravity adds a new dimension to the familiar space.
 
-    Your locker hangs above you. Nearby, your hand terminal floats gently with a
-    notification blinking on the screen.
+    Your locker hangs above you. A crumpled post-it note tumbles lazily in the
+    air. It must have fallen behind the locker at some point. Written on it, in
+    your unmistakable handwriting, are the numbers:
 
-    You grab the hand terminal, stabilizing yourself as you read the message:
+    > **1234**
 
-    > Reminder: The next meetup of the Ruby Group is in two weeks!
-
-    A wave of nostalgia hits you. You suddenly recall your locker password — **it
-    was the middle name of your favorite meetup organizer!**
+    You wonder what it could be for.
   exits:
     l5-your-locker-keypad-float: Twist awkwardly to the keypad
 
@@ -40,15 +38,14 @@
   description: |
     The keypad glows unenthusiastically, awaiting your input.
   lock:
-    prompt: "Enter locker password: [you can put anything in here. – ed.]"
+    prompt: "Enter 4-digit locker code:"
     answer: ""
     opens: l5-your-locker
     errors:
       - "Access denied. Wrong password."
       - "Incorrect. Maybe think harder."
     hints:
-      - "Barry here! Isn't it your favorite organizer's middle name?"
-      - "Starts with 'S'..."
+      - "Really?"
   exits:
     l5-your-cabin-float: Bounce off in frustration
 
