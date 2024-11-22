@@ -40,8 +40,8 @@
   description: |
     The keypad glows unenthusiastically, awaiting your input.
   lock:
-    prompt: "Enter locker password:"
-    answer: "Stephen"
+    prompt: "Enter locker password: [you can put anything in here. – ed.]"
+    answer: ""
     opens: l5-your-locker
     errors:
       - "Access denied. Wrong password."
